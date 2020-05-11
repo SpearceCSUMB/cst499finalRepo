@@ -1,0 +1,65 @@
+<% include partials/header.ejs %>
+
+<style>
+body {
+  background: linear-gradient(90deg, #ffffff 60%, #ffffff 60%);
+}
+</style>
+
+<main>
+
+<div id="header"></div>
+
+<div id="addNewListing">
+    <h3 id="adminListTitle">Aircraft in inventory</h3>
+<a class="btn btn-primary" href="/dataentry" role="button">ADD NEW LISTING</a>
+</div>
+
+<table id="tableList" class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Year</th>
+        <th scope="col">Manufactured</th>
+        <th scope="col">Model</th>
+        <th scope="col">Price</th>
+        <th scope="col">Serial #</th>
+        <th scope="col">Total time</th>
+        <th scope="col">Engine type</th>
+        <th scope="col">SMOH</th>
+        <th scope="col">Inspection</th>
+        <th scope="col"># seats</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+
+      </tr>
+    </thead>
+    <tbody>
+      
+        <% rows.forEach(function(row) { %>
+          <tr> 
+              <td><%= row['year'] %></td>
+              <td><%= row['manufacturer'] %></td>
+              <td><%= row['model'] %></td>
+              <td>$ <%= row['price'] %></td>
+              <td><%= row['serialNumber'] %></td>
+              <td><%= row['totalTime'] %></td>
+              <td><%= row['engineType'] %></td>
+              <td><%= row['smoh'] %></td>
+              <td><%= row['inspection'] %></td>
+              <td><%= row['numberSeats'] %></td>
+              <td><img class = "listImage" src = <%= row['imageURL'] %> width = 100 height = 100></td>
+              <td> 
+              <div><button class="btn btn-update" type ="button" id= update_<%= row['id'] %> onclick="modifyEntry(event, this);">UPDATE</button></div>
+              <div><button class="btn btn-delete" type ="button" id= delete_<%= row['id'] %> onclick="modifyEntry(event, this);">DELETE</button></div>
+              </td>    
+              
+              
+          </tr>
+        <% }) %>
+
+
+    </tbody>
+  </table>
+  </div><br><br>
+
+<% include partials/footer.ejs %>

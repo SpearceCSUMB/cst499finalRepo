@@ -1,0 +1,33 @@
+<% include partials/header.ejs %>
+
+      <main>
+         <div id="header"></div>
+            <div id="createAccountBlock">
+            <div id="createAccountContainer">
+               <h3 id="createAccountTitle">Welcome back</h3>
+
+               <form action="/userAuthenticate" method="POST">
+                  <div class="form-group">
+                     <label id="formLabel" for="formGroupInput">Email address</label>
+                     <input type="text" name="email" class="form-control" id="formGroupInput" placeholder="example@example.com">
+                     <div id="passField">
+                        <label id="formLabel" for="formGroupInput">Password</label>
+                        <div id="loginErrorText"><%=loginError %></div>
+                     </div>
+                     <input type="password" name="password" class="form-control" id="formGroupInput" placeholder="Password (min of 8 characters)">
+                     
+                     <a href="https://www.wikihow.com/Remember-a-Forgotten-Password" id="lginText">Forgot Password?</a><br>
+                     <button type="submit" class="btn btn-primary" id="account-btn">LOG IN</button>
+                     <br><br>
+                     <p id="lginText">Don't have a NorthTech account? <a href="/signUp">Join</a></p><br>
+                  </div>
+                  
+               </form>
+               </div> <!-- end of createAccountContainer div-->
+               <div id="loginPhoto"><img src="img/airplane3.png"></div>
+            </div>
+            </div>
+            
+         <div>
+
+<% include partials/footer.ejs %>

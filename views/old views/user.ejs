@@ -1,0 +1,29 @@
+<% include partials/header.ejs %>
+
+      <main>
+         <div id="header"></div>
+            <div id="createAccountBlock">
+            <div id="createAccountContainer">
+               <h3 id="createAccountTitle">Check a previous order</h3>
+               <div>
+                </div>
+               <form action="/prevOrder" method="POST">
+                  <div class="form-group">
+                     <label id="formLabel" for="formGroupInput">Order number</label>
+                     <input type="text" class="form-control" id="orderId" name="orderId" placeholder="Order number">
+                     
+                  
+                 </div>
+                 
+                <div class="form-groupC">
+                     <button type="submit" onsubmit="signupValidate(event)" class="btn btn-primary" id="account-btn">SUBMIT</button>
+                     <br><br>
+                </div>
+                  
+               </form>
+               </div> <!-- end of createAccountContainer div-->
+            </div>
+            </div>
+         <div>
+
+<% include partials/footer.ejs %>

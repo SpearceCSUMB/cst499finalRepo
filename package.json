@@ -1,0 +1,27 @@
+{
+  "name": "cst336-finalproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sheridanb2008/cst336-finalproject.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sheridanb2008/cst336-finalproject/issues"
+  },
+  "homepage": "https://github.com/sheridanb2008/cst336-finalproject#readme",
+  "dependencies": {
+    "bcrypt": "^3.0.6",
+    "ejs": "^2.6.2",
+    "express": "^4.17.1",
+    "express-session": "^1.16.2",
+    "mysql": "^2.17.1",
+    "request": "^2.88.2"
+  }
+}

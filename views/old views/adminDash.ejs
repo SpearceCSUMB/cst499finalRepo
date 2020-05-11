@@ -1,0 +1,30 @@
+<% include partials/header.ejs %>
+
+      <main>
+        
+         <div id="header"></div>
+            <div id="createAccountBlock">
+            <div class="adminDash" id="createAccountContainer">
+               <h3 id="createAccountTitle">Administration dashboard</h3>
+               <a class="btn btn-primary" id="btn-plane-inventory" href="/adminList" role="button">VIEW DETAILS OF PLANES IN INVENTORY</a><br>
+               <a class="btn btn-primary" id="btn-enter-plane" href="/dataEntry" role="button">ENTER PLANE INTO INVENTORY</a><br>
+               <hr>
+               <!-- <div id="reportTitle">Reports</div>
+               <a class="btn btn-primary" id="btn-report-one" href="" role="button" onclick="createReports(event, this);">PLANES IN INVENTORY</a><br>
+               <a class="btn btn-primary" id="btn-report-two"href="" role="button">NUMBER OF PASS OR FAIL</a><br>
+               <a class="btn btn-primary" id="btn-report-three"href="" role="button">AVERAGE PRICE OF PRODUCTS</a><br> -->
+               <div id="generateReport" align="Center">
+                  <div id="reportTitle">Reports</div>
+                  <button class="btn btn-update" type ="button" id="planes" onclick="createReports(event, this);">PLANES IN INVENTORY</button><br>
+                  <button class="btn btn-update" type ="button" id="passFail" onclick="createReports(event, this);">NUMBER OF PASS OR FAIL</button><br>
+                  <button class="btn btn-update" type ="button" id="average" onclick="createReports(event, this);">AVERAGE PRICE OF PRODUCTS</button><br>
+               </div>
+               <div id="reportOutput" align="Left">
+
+               </div>
+            </div> <!-- end of createAccountContainer div-->
+            <div id="loginPhoto"><img src="img/airplane5.png"></div>
+            </div> <!-- end of createAccountBlock div-->
+         <div>
+
+<% include partials/footer.ejs %>

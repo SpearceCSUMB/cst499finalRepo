@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>My first three.js app</title>
+    <style>
+        body { margin: 0; }
+        canvas { display: block; }
+    </style>
+</head>
+<body>
+    Hi there.
+    <script type="module">
+        import * as THREE from './build/three.module.js';
+        import { GLTFLoader } from './jsm/loaders/GLTFLoader.js';
+        import { OrbitControls } from './jsm/controls/OrbitControls.js';
+        import { FirstPersonControls } from './jsm/controls/FirstPersonControls.js';
+        import { PointerLockControls } from './jsm/controls/PointerLockControls.js';
+        import { FlyControls } from './jsm/controls/FlyControls.js';
+        var loader = new GLTFLoader();
+        
+            // Flags to determine which direction the player is moving
+            var moveForward = false;
+            var moveBackward = false;
+            var moveLeft = false;
+            var moveRight = false;
+
+            // Velocity vector for the player
+            var playerVelocity = new THREE.Vector3();
+
+            // How fast the player will move
+            var PLAYERSPEED = 80.0;
+
+            var clock;
+            var controls;
+
+            clock = new THREE.Clock();
+
+            var havePointerLock = 'pointerLockElement' in document || 'mozPointerLockElement' in document || 'webkitPointerLockElement' in document;
+            if ( havePointerLock ) {
+                var element = document.querySelector('#c');//document.body;
+                var pointerlockchange = function ( event ) {
+                    if ( document.pointerLockElement === element || document.mozPointerLockElement === element || document.webkitPointerLockElement === element ) {
+                        //controlsEnabled = true;
+                        controls.enabled = true;
+                        //blocker.style.display = 'none';
+                    } else {
+                        controls.enabled = false;
+                        //blocker.style.display = '-webkit-box';
+                        //blocker.style.display = '-moz-box';
+                        //blocker.style.display = 'box';
+                        //instructions.style.display = '';
+                    }
+                };
+                var pointerlockerror = function ( event ) {
+                    //instructions.style.display = '';
+                };
+                // Hook pointer lock state change events
+                document.addEventListener( 'pointerlockchange', pointerlockchange, false );
+                document.addEventListener( 'mozpointerlockchange', pointerlockchange, false );
+                document.addEventListener( 'webkitpointerlockchange', pointerlockchange, false );
+                document.addEventListener( 'pointerlockerror', pointerlockerror, false );
+                document.addEventListener( 'mozpointerlockerror', pointerlockerror, false );
+                document.addEventListener( 'webkitpointerlockerror', pointerlockerror, false );
+                document.addEventListener( 'click', function ( event ) {
+                    // Ask the browser to lock the pointer
+                    element.requestPointerLock = element.requestPointerLock || element.mozRequestPointerLock || element.webkitRequestPointerLock;
+                    if ( /Firefox/i.test( navigator.userAgent ) ) {
+                        var fullscreenchange = function ( event ) {
+                            if ( document.fullscreenElement === element || document.mozFullscreenElement === element || document.mozFullScreenElement === element ) {
+                                document.removeEventListener( 'fullscreenchange', fullscreenchange );
+                                document.removeEventListener( 'mozfullscreenchange', fullscreenchange );
+                                element.requestPointerLock();
+                            }
+                        };
+                        document.addEventListener( 'fullscreenchange', fullscreenchange, false );
+                        document.addEventListener( 'mozfullscreenchange', fullscreenchange, false );
+                        element.requestFullscreen = element.requestFullscreen || element.mozRequestFullscreen || element.mozRequestFullScreen || element.webkitRequestFullscreen;
+                        element.requestFullscreen();
+                    } else {
+                        element.requestPointerLock();
+                    }
+                }, false );
+            } else {
+                document.innerHTML = 'Your browser doesn\'t seem to support Pointer Lock API';
+            }
+
+        function dumpObject(obj, lines = [], isLast = true, prefix = '') {
+            const localPrefix = isLast ? '└─' : '├─';
+            lines.push(`${prefix}${prefix ? localPrefix : ''}${obj.name || '*no-name*'} [${obj.type}]`);
+            const newPrefix = prefix + (isLast ? '  ' : '│ ');
+            const lastNdx = obj.children.length - 1;
+            obj.children.forEach((child, ndx) => {
+                const isLast = ndx === lastNdx;
+                dumpObject(child, lines, isLast, newPrefix);
+            });
+            return lines;
+        }
+        
+        
+        function listenForPlayerMovement() {
+    
+            // A key has been pressed
+            var onKeyDown = function(event) {
+
+            switch (event.keyCode) {
+
+            case 38: // up
+            case 87: // w
+                moveForward = true;
+                break;
+
+            case 37: // left
+            case 65: // a
+                moveLeft = true;
+                break;
+
+            case 40: // down
+            case 83: // s
+                moveBackward = true;
+                break;
+
+            case 39: // right
+            case 68: // d
+                moveRight = true;
+                break;
+            }
+        };
+
+        // A key has been released
+            var onKeyUp = function(event) {
+
+            switch (event.keyCode) {
+
+            case 38: // up
+            case 87: // w
+                moveForward = false;
+                break;
+
+            case 37: // left
+            case 65: // a
+                moveLeft = false;
+                break;
+
+            case 40: // down
+            case 83: // s
+                moveBackward = false;
+                break;
+
+            case 39: // right
+            case 68: // d
+                moveRight = false;
+                break;
+            }
+        };
+
+        // Add event listeners for when movement keys are pressed and released
+        document.addEventListener('keydown', onKeyDown, false);
+        document.addEventListener('keyup', onKeyUp, false);
+        }
+
+        function main() {
+            const canvas = document.querySelector('#c');
+            const renderer = new THREE.WebGLRenderer({canvas});
+            
+            listenForPlayerMovement();
+
+
+            const fov = 80;
+            const aspect = 2;  // the canvas default
+            const near = 0.01;
+            const far = 5000;
+            const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+
+
+            camera.position.set( 0, 2, 0 );
+            camera.lookAt(new THREE.Vector3(1, 2, 0));
+
+
+            controls = new PointerLockControls(camera, canvas);
+            controls.enabled = true;
+
+
+            //var controls = new FirstPersonControls(camera,canvas);
+            //var controls = new FlyControls(camera,canvas);
+            /*
+            controls.lookSpeed = 1.4;
+            controls.movementSpeed = 20;
+            controls.noFly = true;
+            controls.lookVertical = true;
+            controls.constrainVertical = true;
+            controls.verticalMin = 1.0;
+            controls.verticalMax = 2.0;
+            //controls.lon = -150;
+            //controls.lat = 120;
+            */
+            /*
+            controls.keys = {
+                LEFT: 37, //left arrow
+                UP: 38, // up arrow
+                RIGHT: 39, // right arrow
+                BOTTOM: 40 // down arrow
+            }*/
+            //controls.update();
+
+            function animatePlayer(delta) {
+                // Gradual slowdown
+                playerVelocity.x -= playerVelocity.x * 10.0 * delta;
+                playerVelocity.z -= playerVelocity.z * 10.0 * delta;
+
+                if (moveForward) {
+                    playerVelocity.z -= PLAYERSPEED * delta;
+                } 
+                if (moveBackward) {
+                    playerVelocity.z += PLAYERSPEED * delta;
+                } 
+                if (moveLeft) {
+                    playerVelocity.x -= PLAYERSPEED * delta;
+                } 
+                if (moveRight) {
+                    playerVelocity.x += PLAYERSPEED * delta;
+                }
+                if( !( moveForward || moveBackward || moveLeft ||moveRight)) {
+                    // No movement key being pressed. Stop movememnt
+                    playerVelocity.x = 0;
+                    playerVelocity.z = 0;
+                }
+                controls.getObject().translateX(playerVelocity.x * delta);
+                controls.getObject().translateZ(playerVelocity.z * delta);
+            }
+/*
+            const controls = new OrbitControls(camera, canvas);
+            controls.target.set(0, 5, 0);
+            controls.update();
+
+            
+            
+
+            //controls.addEventListener( 'change', render ); // use if there is no animation loop
+            //controls.minDistance = -1000;
+            //controls.maxDistance = 1000;
+            //controls.target.set( 0, 0, - 0.2 );
+         */   
+            
+            
+            //camera.position.set( 0, 0, 0 );
+            
+            const scene = new THREE.Scene();
+            scene.add( controls.getObject() );
+            {
+                const color = 0xFFFFFF;
+                const intensity = 1;
+                const light = new THREE.DirectionalLight(color, intensity);
+                light.position.set(-1, 2, 4);
+                scene.add(light);
+            }
+            
+            
+            // Load a glTF resource
+            loader.load(
+            // resource URL
+            'gltf/testroom3.glb',
+            // called when the resource is loaded
+            function ( gltf ) {
+                
+                gltf.scene.matrixAutoUpdate = false;
+                gltf.scene.matrix.scale(new THREE.Vector3(0.01,0.01,0.01));
+                
+                console.log(dumpObject(gltf.scene).join('\n'));
+                
+                scene.add( gltf.scene );
+                
+                gltf.animations; // Array<THREE.AnimationClip>
+                    gltf.scene; // THREE.Group
+                    gltf.scenes; // Array<THREE.Group>
+                        gltf.cameras; // Array<THREE.Camera>
+                            gltf.asset; // Object
+                            
+                        },
+                        // called while loading is progressing
+                        function ( xhr ) {
+                            
+                            console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+                            
+                        },
+                        // called when loading has errors
+                        function ( error ) {
+                            console.log( 'An error happened' + error);
+                        }
+                        );
+                        
+                        const boxWidth = 1;
+                        const boxHeight = 1;
+                        const boxDepth = 1;
+                        const geometry = new THREE.BoxGeometry(boxWidth, boxHeight, boxDepth);
+                        
+                        function makeInstance(geometry, color, x) {
+                            const material = new THREE.MeshPhongMaterial({color});
+                            
+                            const cube = new THREE.Mesh(geometry, material);
+                            scene.add(cube);
+                            
+                            cube.position.x = x;
+                            
+                            return cube;
+                        }
+                        
+                        const cubes = [
+                        makeInstance(geometry, 0x44aa88,  0),
+                        makeInstance(geometry, 0x8844aa, -2),
+                        makeInstance(geometry, 0xaa8844,  2),
+                        ];
+                        
+
+                        function render(time) {
+                            time *= 0.001;  // convert time to seconds
+                            //var delta = clock.getDelta();
+                            //controls.update(delta);
+
+                            cubes.forEach((cube, ndx) => {
+                                const speed = 1 + ndx * .1;
+                                const rot = time * speed;
+                                cube.rotation.x = rot;
+                                cube.rotation.y = rot;
+                            });
+                            
+                            renderer.render(scene, camera);
+                            
+                            requestAnimationFrame(render);
+
+                            var delta = clock.getDelta();
+                            animatePlayer(delta);
+                        }
+                        
+                        function onWindowResize() {
+                            
+                            camera.aspect = (window.innerWidth-100) / (window.innerHeight-100);
+                            camera.updateProjectionMatrix();
+                            
+                            renderer.setSize( window.innerWidth-100, window.innerHeight-100 );
+                            
+                            render();
+                        }
+                        
+
+                        window.addEventListener( 'resize', onWindowResize, false );
+                        onWindowResize();
+                        requestAnimationFrame(render);
+                        
+                    }
+                    
+                    main();
+                    
+                </script>
+                
+                <canvas id="c" width="800" height="400"></canvas>
+                
+            </body>
+            </html>
+            

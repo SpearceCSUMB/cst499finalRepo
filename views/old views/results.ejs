@@ -1,0 +1,49 @@
+<% include partials/header.ejs %>
+
+      <main>
+
+         <div id="header"></div>
+            <div id="searchResultsBlock">
+               <div id="resultsContainer">
+               <div id="searchResultsContainer">
+                  <h3 id="searchResultsTitle">Search results</h3>
+
+                  <div id="noSearchResult"><%=noResults %><a href="<%= link %>"><%= linkText %></a></div>
+                  
+                  <table id="tableList" class="table table-striped">
+                     <thead>
+                        <tr></tr>
+                     </thead>
+                     <tbody>
+                        <% rows.forEach(function(row) { %>
+                           <tr>
+                              <td id="aircraftDetails">
+                                 <div id="searchRow"><div id="searchLabel">Aircraft</div><%= row['manufacturer'] %> <%= row['model'] %></div>
+                                 <div id="searchRow"><div id="searchLabel">Year</div><%= row['year'] %></div>
+                                 <div id="searchRow"><div id="searchLabel">Engine</div><%= row['engineType'] %></div>
+                                 <div id="searchRow"><div id="searchLabel"># of seats</div><%= row['numberSeats'] %></div>
+                                 <div id="searchRow"><div id="searchLabel">Price</div>$ <%= row['price'] %></div>
+                                 <div id="searchRow"><div id="searchLabel">Serial No.</div><%= row['serialNumber'] %></div>
+                                 <div id="searchRow"><div id="searchLabel">Flight hours</div><%= row['totalTime'] %></div>
+                                 <div id="searchRow"><div id="searchLabel">SMOH</div><%= row['smoh'] %></div>
+                                 <div id="searchRow"><div id="searchLabel">Inspection</div><%= row['inspection'] %></div>
+                                 <td id="picFrame"><img class = "listImage" src = <%= row['imageURL'] %> width = 250</td></td>
+                                 <td clas="popup" id = "statusBtn_<%= row['id'] %>"></td>
+                                 <script>
+                                   if('<%= row['inCart'] %>' == ""){
+                                      $("#statusBtn_<%= row['id'] %>").append("<button class='btn btn-delete' type ='button' id= add_<%= row['id'] %> onclick='addCart(event, this);'>Add To Cart</button>")
+                                   } else {
+                                      $("#statusBtn_<%= row['id'] %>").append("<p id='inCartText'>In cart</p>")
+                                      } 
+                                 </script> 
+                           </tr>
+                     
+                        <% }) %>
+                       
+                     </tbody>
+                  </table>
+               </div>
+               </div>
+            </div>
+
+<% include partials/footer.ejs %>

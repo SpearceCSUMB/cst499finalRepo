@@ -1,0 +1,105 @@
+<% include partials/header.ejs %>
+
+      <main>
+         <div id="header"></div>
+            <div id="planeDataBlock">
+               <div id="dataEntryContainer">
+               <h3 id="createAccountTitle">Airplane data entry</h3><br>
+               <form  action="/api/addAircraft" method="POST">
+                  <div class="containerPlaneData">
+                     <div class="row" id="data-row">
+                        <!-- general information on the plane -->
+                        <input type="hidden" name="form" value='<%=results[0].id%>'/>
+                        <div class="col-sm-2"><hr><div id="dataInputSectionLabel" >General Information</div></div>
+                        <div class="col-sm-4">
+                           <label id="formLabel" for="formGroupInput">Manufacturer</label>
+                           <input type="text" class="dataEntryField" id = manufacturer size="15" placeholder="" name="manufacturer"/>
+                           <script>if('<%=results[0].manufacturer%>' != "") { $("#manufacturer").val("<%=results[0].manufacturer%>")}</script>
+                        </div><br>
+                        <div class="w-100"></div>
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-2">
+                           <label id="formLabel" for="formGroupInput">Model</label>
+                           <input type="text" id="model" class="dataEntryField" size="15" placeholder="" name="model"/>
+                           <script>if('<%=results[0].model%>' != "") { $("#model").val("<%=results[0].model%>")}</script>
+                        </div>
+                        <div class="w-100"></div>
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-2">
+                           <label id="formLabel" for="formGroupInput">Year</label><br>
+                           <input type="text" class="dataEntryFieldSmall" id="year" size="15" placeholder="YYYY" name="year"/>
+                          <script>if('<%=results[0].year%>' != "") { $("#year").val("<%=results[0].year%>")}</script>
+                        </div>
+                        <div class="col-sm-2">
+                           <label id="formLabel" for="formGroupInput">Serial number</label><br>
+                           <input type="text" id = serialNumber class="dataEntryFieldSmall" size="15" placeholder="" name="serialNumber"/>
+                           <script>if('<%=results[0].serialNumber%>' != "") { $("#serialNumber").val("<%=results[0].serialNumber%>")}</script>
+                        </div>
+                        <div class="col-sm-2">
+                           <label id="formLabel" for="formGroupInput">Price (US$)</label><br>
+                           <input type="text" id = price class="dataEntryFieldSmall" size="15" placeholder="" name="price"/>
+                           <script>if('<%=results[0].price%>' != "") { $("#price").val("<%=results[0].price%>")}</script>
+                        </div>
+                        <!-- engine details on the plane -->
+                        <div class="w-100"></div>
+                        <div class="col-sm-2"><hr><div id="dataInputSectionLabel">Engine Details</div></div>
+                        <div class="col-sm-2">
+                           <label id="formLabel" for="formGroupInput">Hours</label><br>
+                           <input type="text" id = totalTime class="dataEntryFieldSmall" size="5" placeholder="" name="totalTime"/>
+                           <script>if('<%=results[0].totalTime%>' != "") { $("#totalTime").val("<%=results[0].totalTime%>")}</script>
+                        </div>
+                        <div class="col-sm-2">
+                           <label id="formLabel" for="formGroupInput">Engine type</label><br>
+                            <select class="custom-select" id="engType" name="engineType">
+                              <option selected>Select</option>
+                              <option value="Jet">Jet</option>
+                              <option value="Prop">Prop</option>
+                            </select>
+                          <script>if('<%=results[0].engineType%>' != "") { $('#engType').val("<%=results[0].engineType%>")}</script>
+                        </div>
+                        <div class="col-sm-2">
+                           <label id="formLabel" for="formGroupInput">SMOH</label><br>
+                           <input type="text" id = smoh class="dataEntryFieldSmall" size="5" placeholder="" name="smoh"/>
+                           <script>if('<%=results[0].smoh%>' != "") { $("#smoh").val("<%=results[0].smoh%>")}</script>
+                        </div>
+                        <div class="col-sm-2">
+                           <label id="formLabel" for="formGroupInput">Inspection</label><br>
+                           <select class="custom-select" id="inspection" name="inspection">
+                              <option selected>Select</option>
+                              <option value="Pass">Pass</option>
+                              <option value="Fail">Fail</option>
+                           </select>
+                           <script>if('<%=results[0].inspection%>' != "") { $("#inspection").val("<%=results[0].inspection%>")}</script>
+                        </div>
+                        <!-- interior details on the airplane -->
+                        <div class="w-100"></div>
+                        <div class="col-sm-2"><hr><div id="dataInputSectionLabel">Interior Details</div></div>
+                        <div class="col-sm-2">
+                           <label id="formLabel" for="formGroupInput">Number of seats</label><br>
+                           <input type="text" id = numberSeats class="dataEntryFieldSmall" size="5" placeholder="" name="numberSeats"/>
+                           <script>if('<%=results[0].numberSeats%>' != "") { $("#numberSeats").val("<%=results[0].numberSeats%>")}</script>
+                        </div>
+                        <!-- image of the airplane -->
+                        <div class="w-100"></div>
+                        <div class="col-sm-2"><hr><div id="dataInputSectionLabel">Airplane Image</div></div>
+                        <div class="col-sm-4">
+                           <label id="formLabel" for="formGroupInput">URL</label>
+                           <input type="text" id = imageURL class="dataEntryField"  placeholder="" name="imageURL"/>
+                           <script>if('<%=results[0].imageURL%>' != "") { $("#imageURL").val("<%=results[0].imageURL%>")}</script>
+                        </div>
+                        <!-- reset and submit buttons -->
+                        <div class="w-100"></div>
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-4">
+                           <button type="reset" id="reset-btn" class="btn btn-primary" value="Reset" onClick="window.location.reload()">RESET</button>
+                           <button type="submit" id="submit-btn" class="btn btn-primary">SUBMIT</button>
+                        </div>
+                     </div> <!-- end of row class -->
+                  </div>
+               </form>
+               </div>
+            </div>
+            
+         <div>
+
+<% include partials/footer.ejs %>

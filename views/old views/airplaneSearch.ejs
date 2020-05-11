@@ -1,0 +1,44 @@
+<% include partials/header.ejs %>
+
+      <main>
+         <div id="header"></div>
+            <div id="createAccountBlock">
+            <div id="airplaneSearchContainer">
+               <h3 id="createAccountTitle">Find your plane</h3>
+              
+               <form action="/search">
+                  <div class="form-group">
+                     
+                     <label id="formLabel" for="formGroupInput">Make of airplane</label><br>
+                     <select class="custom-select" id="dropdownMenuMake" name="make">
+                        <option id="selectOne"</option>
+                        <% make.forEach(function(row) { %>
+                           <option id="<%= row['manufacturer'] %>"> <%= row['manufacturer'] %> </option>
+                        <% }) %> 
+                     </select><br>
+                     <label id="formLabel" for="formGroupInput">Type of engine</label><br>
+                     <select class="custom-select" id="dropdownMenuEngine" name="engine">
+                        <option id="selectTwo"></option>
+                        <% engine.forEach(function(row) { %>
+                           <option id="<%= row['engineType'] %>"> <%= row['engineType'] %> </option>
+                        <% }) %> 
+                     </select><br>
+                     <label id="formLabel" for="formGroupInput">Price range (min -> max)</label><br>
+                     <input type="text" class="dataEntryFieldSmall" id="priceStart" size="15" name="priceStart"/>
+                     <label id="formLabel" class="to" for="formGroupInput">TO</label>
+                     <input type="text" class="dataEntryFieldSmall" id="priceEnd" size="15" name="priceEnd"/><br>
+                     <label id="formLabel" for="formGroupInput">Number of flight hours (min -> max)</label><br>
+                     <input type="text" class="dataEntryFieldSmall" id="hoursStart" size="15" name="hoursStart"/>
+                     <label id="formLabel" class="to" for="formGroupInput"> TO </label>
+                     <input type="text" class="dataEntryFieldSmall" id="hoursEnd" size="15" name="hoursEnd"/><br>
+                     <button type="reset" id="resetSearch-btn" class="btn btn-primary" value="Reset" onClick="window.location.reload()">RESET</button>
+                     <button type="submit" id="submit-btn-airplane" class="btn btn-primary">SEARCH</button>
+                  </div>
+               </form>
+            </div> <!-- end of createAccountContainer div-->
+            <div id="airplaneSearchPhoto"><img src="img/airplane2.png"></div>
+         </div> <!-- end of createAccountContainer div-->
+      </div>
+      <div>
+
+<% include partials/footer.ejs %>

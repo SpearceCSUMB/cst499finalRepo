@@ -1,0 +1,49 @@
+<% include partials/header.ejs %>
+
+      <main>
+         <div id="header"></div>
+            <div id="createAccountBlock">
+            <div id="signUpContainer">
+               <h3 id="createAccountTitle">Let's create your account</h3>
+               <form action="/createUser" method="POST">
+                  <div class="form-group">
+                     <label id="formLabel" for="formGroupInput">First name</label>
+                     <input type="text" class="form-control" id="firstNameInput" name="firstName" placeholder="First name">
+                     <label id="formLabel" for="formGroupInput">Last name</label>
+                     <input type="text" class="form-control" id="lastNameInput" name="lastName" placeholder="Last name">
+                     <div id="passField">
+                     <label id="formLabel" for="formGroupInput">E-mail address</label>
+                     <div id="loginErrorText"><%=loginError %></div>
+                     </div>
+                     <input type="text" class="form-control" id="emailInput" name="email" placeholder="example@example.com">
+                     <label id="formLabel" for="formGroupInput">Password</label>
+                     <input type="password" class="form-control" id="passwordInput" name="password" placeholder="Password (min of 8 characters)"><br> 
+                 </div>
+                 <div class="form-groupB">
+                    <div id="checkRow">
+                   <label class="form-check-label" for="defaultCheck1">
+                       <p id="checkboxText">I have read and agree to Northwestern Technology's <a href="/termsOfService">Terms of Use</a> and <a href="/privacyPolicy">Privacy Policy</a>.</p>
+                   </label>  
+                   <input class="form-check-input" type="checkbox" name="agreeTOS" value="1" id="defaultCheck1"><br>
+                   </div>
+                   <div id="checkRow">
+                   <label class="form-check-label" for="defaultCheck2">
+                       <p id="checkboxText">I want to receive communications about Northwestern Technology news and offers.</p>
+                   </label>
+                   <input class="form-check-input" type="checkbox" name="agreeSpam" value="1" id="defaultCheck2"><br>
+                   </div>
+                </div>
+                 
+                <div class="form-groupC">
+                     <button type="submit" onsubmit="signupValidate(event)" class="btn btn-primary" id="account-btn">JOIN</button>
+                     <br><br>
+                </div>
+                  
+               </form>
+               </div> <!-- end of createAccountContainer div-->
+               <div class="airplanePhoto4" id="loginPhoto"><img src="img/airplane4.png"></div>
+            </div>
+            </div>
+         <div>
+
+<% include partials/footer.ejs %>
