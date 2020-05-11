@@ -1,0 +1,3 @@
+D:\Documents\CSMB\FinalCapstone\Capstone Final\obj\Debug\Capstone Final.njsproj.CoreCompileInputs.cache
+D:\Documents\CSMB\FinalCapstone\Capstone Final\obj\Debug\Capstone Final.njsprojAssemblyReference.cache
+D:\Documents\CSMB\FinalCapstone\Capstone Final\bin\Microsoft.NodejsTools.WebRole.dll

@@ -6,13 +6,13 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 
 // root route
-app.get("/", function(req, res) {
+app.get("/", function(req, res){
     res.render("index.ejs");
-});
-
-app.get("/game-stage", function(req, res) {
-    res.render("demot.html")
-});
+ });
+ 
+ app.get("/game-stage", function(req, res) {
+   res.render("game-stage.ejs")
+ });
 
 // // server listening
 app.listen(3000, () => {
