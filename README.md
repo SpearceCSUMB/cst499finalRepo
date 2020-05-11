@@ -1,4 +1,6 @@
 # cst499 Capstone Final Project
+BEFORE RUNNING PROGRAM
+ Be sure that you attach the gltf folder into the "Public" directory, otherwise the textures will NOT load. 
 
 To Do:
     1. Make the necessary changes to the schema.sql file.
