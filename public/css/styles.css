@@ -79,7 +79,7 @@ nav .current {
 .footer-container {
     display: flex;
     justify-content: space-evenly;
-    height: 340px;
+    height: 220px;
     max-width: 1324px;
     margin-left: 50%;
     margin-right: 50%;
@@ -129,7 +129,7 @@ nav .current {
 }
 
 .team-logo, .csumb-logo {
-    padding-top: 48px;
+    padding-top: 10px;
 }
 
 .footer-title-text {
@@ -202,18 +202,18 @@ nav .current {
  }
 
  .game-stage-container {
-    height: 100vh;
+    height: 69vh;
     display: flex;
     justify-content: center;
     width: 100%;
-    background-color: #fff;
+    background-color: #000;
  }
 
  .game-stage {
      width: 100%;
      min-width: 1324px;
      max-width: 1324px;
-     padding-left: 92px;
+     padding-left: 0px;
      background-color: #fff;
  }
 

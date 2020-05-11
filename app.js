@@ -11,7 +11,7 @@ app.get("/", function(req, res) {
 });
 
 app.get("/game-stage", function(req, res) {
-    res.render("game-stage.ejs")
+    res.render("demo.html")
 });
 
 // // server listening
