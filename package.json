@@ -1,0 +1,26 @@
+{
+  "name": "cst499finalrepo",
+  "version": "1.0.0",
+  "description": "To Do:\r     1. Make the necessary changes to the schema.sql file.\r     2. Make changes to the app.js and admin.js (If there will be an admin page for this project)\r     3. Comb through the Capstone Final Directory and sort through what needs to be there and what does not.\r     4. Focus on making a base website where we will be able to access to look over what the game is. \r     5.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SpearceCSUMB/cst499finalRepo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SpearceCSUMB/cst499finalRepo/issues"
+  },
+  "homepage": "https://github.com/SpearceCSUMB/cst499finalRepo#readme",
+  "dependencies": {
+    "bcrypt": "^4.0.1",
+    "ejs": "^3.1.2",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "mysql": "^2.18.1"
+  }
+}
