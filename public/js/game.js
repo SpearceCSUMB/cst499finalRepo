@@ -1,3 +1,12 @@
+var questionBlock = document.getElementById("question");
+var gameBlock = document.getElementById("threejs");
+questionBlock.style.display = "none";
+gameBlock.style.display = "block";
+document.getElementById("exit").addEventListener("click", event => {
+    questionBlock.style.display = "none";
+    gameBlock.style.display = "block";
+});
+
 import * as THREE from '../build/three.module.js';
 import {GLTFLoader} from '../jsm/loaders/GLTFLoader.js';
 import {OrbitControls} from '../jsm/controls/OrbitControls.js';
@@ -13,8 +22,8 @@ document.addEventListener('keydown', util.onKeyDown, false);
 document.addEventListener('keyup', util.onKeyUp, false);
 //var modelBaseURL = "http://34.106.223.239/gltf/";
 var modelBaseURL = "http://localhost:3000/gltf/";
-// Flags to determine which direction the player is moving
-
+// game flow control
+var completedTask = 0;
 // Velocity vector for the player
 var playerVelocity = new THREE.Vector3();
 
@@ -227,7 +236,121 @@ function main() {
     //scene.add( plight );
     var ambient = new THREE.AmbientLight( 0xFFFFFF ); // soft white light
     scene.add( ambient );
-    
+            
+    // ------------------------Game Control --------------------------------
+    // Load a glTF resource for question 1
+    loader.load(
+    // resource URL
+        modelBaseURL + 'cardboard_box.glb',
+        // called when the resource is loaded
+        function ( gltf ) {              
+     
+            gltf.scene.traverse( child => {
+            if ( child.material ) child.material.metalness = 0.1;
+                child.position.set(0.37,-0.165,0.04);
+                util.collidableObjects.push(child);
+                domEvent.addEventListener(child,'click', event =>{
+                    if (completedTask == 0){
+                        questionBlock.style.display = "block";
+                        gameBlock.style.display = "none";
+                        
+                                                    
+                    } 
+                                
+                })
+            });
+            scene.add( gltf.scene );
+        });
+
+    // // Load a glTF resource for question 2
+    // loader.load(
+    //     // resource URL
+    //         modelBaseURL + 'cardboard_box.glb',
+    //         // called when the resource is loaded
+    //         function ( gltf ) {              
+         
+    //             gltf.scene.traverse( child => {
+    //             if ( child.material ) child.material.metalness = 0.1;
+    //                 child.position.set(0.37,-0.165,0.04);
+    //                 util.collidableObjects.push(child);
+    //                 domEvent.addEventListener(child,'click', event =>{
+    //                     if (completedTask == 1){
+    //                         questionBlock.style.display = "block";
+    //                         gameBlock.style.display = "none";
+                                                        
+    //                     } 
+                                    
+    //                 })
+    //             });
+    //             scene.add( gltf.scene );
+    //         });
+    // // Load a glTF resource for question 3
+    // loader.load(
+    //     // resource URL
+    //         modelBaseURL + 'cardboard_box.glb',
+    //         // called when the resource is loaded
+    //         function ( gltf ) {              
+         
+    //             gltf.scene.traverse( child => {
+    //             if ( child.material ) child.material.metalness = 0.1;
+    //                 child.position.set(0.37,-0.165,0.04);
+    //                 util.collidableObjects.push(child);
+    //                 domEvent.addEventListener(child,'click', event =>{
+    //                     if (completedTask == 2){
+    //                         questionBlock.style.display = "block";
+    //                         gameBlock.style.display = "none";
+                                                        
+    //                     } 
+                                    
+    //                 })
+    //             });
+    //             scene.add( gltf.scene );
+    //         });  
+    // // Load a glTF resource for question 4
+    // loader.load(
+    //     // resource URL
+    //         modelBaseURL + 'cardboard_box.glb',
+    //         // called when the resource is loaded
+    //         function ( gltf ) {              
+         
+    //             gltf.scene.traverse( child => {
+    //             if ( child.material ) child.material.metalness = 0.1;
+    //                 child.position.set(0.37,-0.165,0.04);
+    //                 util.collidableObjects.push(child);
+    //                 domEvent.addEventListener(child,'click', event =>{
+    //                     if (completedTask == 3){
+    //                         questionBlock.style.display = "block";
+    //                         gameBlock.style.display = "none";
+                                                        
+    //                     } 
+                                    
+    //                 })
+    //             });
+    //             scene.add( gltf.scene );
+    //         });  
+    // // Load a glTF resource for question 5
+    // loader.load(
+    //     // resource URL
+    //         modelBaseURL + 'cardboard_box.glb',
+    //         // called when the resource is loaded
+    //         function ( gltf ) {              
+         
+    //             gltf.scene.traverse( child => {
+    //             if ( child.material ) child.material.metalness = 0.1;
+    //                 child.position.set(0.37,-0.165,0.04);
+    //                 util.collidableObjects.push(child);
+    //                 domEvent.addEventListener(child,'click', event =>{
+    //                     if (completedTask == 4){
+    //                         questionBlock.style.display = "block";
+    //                         gameBlock.style.display = "none";
+                                                        
+    //                     } 
+                                    
+    //                 })
+    //             });
+    //             scene.add( gltf.scene );
+    //         });                                      
+// ----------------------- End Game Control --------------------------------
     {
         //THREE.ImageUtils.crossOrigin = '';
 
@@ -326,30 +449,16 @@ function main() {
             console.log( 'An error happened' + error);
         }
     );
-    
-    //util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene, new THREE.Matrix4());
 
-    var ladderPos = new THREE.Vector3(0.7,-0.42,0.7);
-    var ladderScale = new THREE.Vector3(0.25,0.25,0.25);
-    var ladderQuat = new THREE.Quaternion();
-    var ladderMat = new THREE.Matrix4().compose(ladderPos,ladderQuat,ladderScale);
+    
+
+
     //util.loadgltfModel(modelBaseURL + 'ladder.glb',scene,ladderMat);
-    //util.loadgltfModel(modelBaseURL + 'table.glb',scene, new THREE.Matrix4().makeTranslation(1, 4, -0.4));
-    var boxPos = new THREE.Vector3(0.5,-0.4,-0.5);
-    var boxScale = new THREE.Vector3(0.1,0.1,0.1);
-    var boxQuat = new THREE.Quaternion();
-    var boxMat = new THREE.Matrix4().compose(boxPos,boxQuat,boxScale);
-    //util.loadgltfModel(modelBaseURL + 'cardboardbox02.glb',scene, boxMat);
-    var boxPos2 = new THREE.Vector3(0.5,-0.4,0.5);
-    var boxScale2 = new THREE.Vector3(0.1,0.1,0.1);
-    var boxQuat2 = new THREE.Quaternion();
-    var boxMat2 = new THREE.Matrix4().compose(boxPos2,boxQuat2,boxScale2);
-    //util.loadgltfModel(modelBaseURL + 'cardboardbox01.glb',scene, boxMat2);
-    util.loadgltfModel(modelBaseURL + 'toolbox.glb',scene, new THREE.Matrix4());
-    const boxWidth = 1;
-    const boxHeight = 1;
-    const boxDepth = 1;
-    const geometry = new THREE.BoxGeometry(boxWidth, boxHeight, boxDepth);
+    
+    var table = util.loadgltfModel(modelBaseURL + 'table.glb',scene,0.37,-0.2,0.04);
+    
+    //util.loadgltfModel(modelBaseURL + 'toolbox.glb',scene, new THREE.Matrix4());
+// --------------------------------------------------------------
     var box1 = util.addCube(0.1,0.15,0.07,modelBaseURL + 'textures/Barn_Raw_Wood_baseColor.jpeg',0.5,-0.35,0.535,scene)
     var box2 = util.addCube(0.1,0.5,0.1,modelBaseURL + 'textures/Barn_Raw_Wood_baseColor.jpeg',0.5,-0.35,0.45,scene)
     var box3 = util.addCube(0.1,0.5,0.1,modelBaseURL + 'textures/Barn_Raw_Wood_baseColor.jpeg',0.5,-0.35,0.35,scene)
@@ -360,18 +469,10 @@ function main() {
     domEvent.addEventListener(box1, 'click', event =>{
         if(box1.position.x < 0.78 ){
             box1.position.set(box1.position.x + 0.05,box1.position.y,box1.position.z);
-            scene.add(box1);
+            
         }
-    })
-    // domEvent.addEventListener(box2, 'click', event =>{
-    //     box2.position.set(box2.position.x - 0.1,box2.position.y,box2.position.z);
-    //     scene.add(box2);
-    // })
-    // domEvent.addEventListener(box3, 'click', event =>{
-    //     box3.position.set(box3.position.x - 0.1,box3.position.y,box3.position.z);
-    //     scene.add(box3);
-    // })
-    
+    });
+// --------------------------------------------------------------
     
     function render(time) {
         time *= 0.001;  // convert time to seconds

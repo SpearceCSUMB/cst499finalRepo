@@ -14,24 +14,26 @@ export var collidableObjects = [];
 
 
 
-export function loadgltfModel(modelURL,scene) {
+
+export function loadgltfModel(modelURL,scene,posX,posY,posZ) {
     var loader = new GLTFLoader();
+      
+
     loader.load(
         // resource URL
         modelURL,
+        
         // called when the resource is loaded
         function ( gltf ) {
+
+            gltf.scene.traverse( child => {
+                if ( child.material ) child.material.metalness = 0.1;
+                child.position.set(posX,posY,posZ);
+                collidableObjects.push(child);
+                
+                
+            } );
             scene.add( gltf.scene );
-            },
-            // called while loading is progressing
-            function ( xhr ) {
-                
-                console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
-                
-            },
-            // called when loading has errors
-            function ( error ) {
-                console.log( 'An error happened' + error);
             }
     );
 }

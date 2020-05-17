@@ -1,6 +1,15 @@
 <%- include('partials/header') %>
+    <div id = "question" class="game-stage-container" >
+        <form id = "question" method = "post" >
 
-    <div class="game-stage-container">
+            <input type ="text" name = "codeEnter" rows="10">
+            <br>
+            <button type = "submit">Submit</button>
+            <button id = "exit" type = "reset">Exit</button>    
+        </form>
+        
+    </div>
+    <div id = "threejs" class="game-stage-container">
         
         <script type="module" src="js/game.js"></script>
         <canvas id="c" width="800" height="400"></canvas>
