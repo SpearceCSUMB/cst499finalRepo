@@ -4,11 +4,14 @@ import {OrbitControls} from '../jsm/controls/OrbitControls.js';
 import {FirstPersonControls} from '../jsm/controls/FirstPersonControls.js';
 import {PointerLockControls} from '../jsm/controls/PointerLockControls.js';
 import {FlyControls} from '../jsm/controls/FlyControls.js';
+
+
 export var moveForward = false;
 export var moveBackward = false;
 export var moveLeft = false;
 export var moveRight = false;
 export var collidableObjects = [];
+
 
 
 export function loadgltfModel(modelURL,scene) {
@@ -134,4 +137,5 @@ export function addCube(H,W,D, texture, p1,p2,p3, scene){
   //scene is global
  scene.add(mesh);
  collidableObjects.push(mesh);
+return mesh;
 }

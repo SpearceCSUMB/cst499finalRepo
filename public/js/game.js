@@ -4,6 +4,7 @@ import {OrbitControls} from '../jsm/controls/OrbitControls.js';
 import {FirstPersonControls} from '../jsm/controls/FirstPersonControls.js';
 import {PointerLockControls} from '../jsm/controls/PointerLockControls.js';
 import {FlyControls} from '../jsm/controls/FlyControls.js';
+import {THREEx} from  "../build/threex.domevents.js"; 
 import * as util from "./util.js";
 
 var loader = new GLTFLoader();
@@ -174,6 +175,7 @@ function main() {
     const near = 0.01;
     const far = 5000;
     const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+    const domEvent = new THREEx.DomEvents(camera,renderer.domElement);
     
     camera.position.set( 0, playerFloor, 0.5 );
     camera.lookAt(new THREE.Vector3(0, playerFloor, 0));
@@ -348,9 +350,21 @@ function main() {
     const boxHeight = 1;
     const boxDepth = 1;
     const geometry = new THREE.BoxGeometry(boxWidth, boxHeight, boxDepth);
-    util.addCube(0.1,0.1,0.1,modelBaseURL + 'textures/Barn_Raw_Wood_baseColor.jpeg',0.5,-0.35,0.5,scene)
-    util.addCube(0.1,0.1,0.1,modelBaseURL + 'textures/Barn_Raw_Wood_baseColor.jpeg',0.5,-0.35,0.35,scene)
-    util.addCube(0.1,0.1,0.1,modelBaseURL + 'textures/Barn_Raw_Wood_baseColor.jpeg',0.5,-0.25,0.425,scene)
+    var box1 = util.addCube(0.1,0.1,0.1,modelBaseURL + 'textures/Barn_Raw_Wood_baseColor.jpeg',0.5,-0.35,0.5,scene)
+    var box2 = util.addCube(0.1,0.1,0.1,modelBaseURL + 'textures/Barn_Raw_Wood_baseColor.jpeg',0.5,-0.35,0.35,scene)
+    var box3 = util.addCube(0.1,0.1,0.1,modelBaseURL + 'textures/Barn_Raw_Wood_baseColor.jpeg',0.5,-0.25,0.425,scene)
+    domEvent.addEventListener(box1, 'click', event =>{
+        box1.position.set(box1.position.x - 0.1,box1.position.y,box1.position.z);
+        scene.add(box1);
+    })
+    domEvent.addEventListener(box2, 'click', event =>{
+        box2.position.set(box2.position.x - 0.1,box2.position.y,box2.position.z);
+        scene.add(box2);
+    })
+    domEvent.addEventListener(box3, 'click', event =>{
+        box3.position.set(box3.position.x - 0.1,box3.position.y,box3.position.z);
+        scene.add(box3);
+    })
     
     
     function render(time) {
