@@ -132,7 +132,7 @@ function detectPlayerCollision() {
     var rotationMatrix;
     // Get direction of camera
     var cameraDirection = controls.getDirection(new THREE.Vector3(0, 0, 0)).clone();
-    var PLAYERCOLLISIONDISTANCE = .3;
+    var PLAYERCOLLISIONDISTANCE = .125;
     // Check which direction we're moving (not looking)
     // Flip matrix to that direction so that we can reposition the ray
     if (util.moveBackward) {
@@ -350,21 +350,27 @@ function main() {
     const boxHeight = 1;
     const boxDepth = 1;
     const geometry = new THREE.BoxGeometry(boxWidth, boxHeight, boxDepth);
-    var box1 = util.addCube(0.1,0.1,0.1,modelBaseURL + 'textures/Barn_Raw_Wood_baseColor.jpeg',0.5,-0.35,0.5,scene)
-    var box2 = util.addCube(0.1,0.1,0.1,modelBaseURL + 'textures/Barn_Raw_Wood_baseColor.jpeg',0.5,-0.35,0.35,scene)
-    var box3 = util.addCube(0.1,0.1,0.1,modelBaseURL + 'textures/Barn_Raw_Wood_baseColor.jpeg',0.5,-0.25,0.425,scene)
+    var box1 = util.addCube(0.1,0.15,0.07,modelBaseURL + 'textures/Barn_Raw_Wood_baseColor.jpeg',0.5,-0.35,0.535,scene)
+    var box2 = util.addCube(0.1,0.5,0.1,modelBaseURL + 'textures/Barn_Raw_Wood_baseColor.jpeg',0.5,-0.35,0.45,scene)
+    var box3 = util.addCube(0.1,0.5,0.1,modelBaseURL + 'textures/Barn_Raw_Wood_baseColor.jpeg',0.5,-0.35,0.35,scene)
+    var box4 = util.addCube(0.1,0.175,0.07,modelBaseURL + 'textures/Barn_Raw_Wood_baseColor.jpeg',0.5,-0.188,0.535,scene)
+    var box5 = util.addCube(0.1,0.5,0.1,modelBaseURL + 'textures/Barn_Raw_Wood_baseColor.jpeg',0.5,-0.35,0.25,scene)
+    var box6 = util.addCube(0.1,0.5,0.1,modelBaseURL + 'textures/Barn_Raw_Wood_baseColor.jpeg',0.5,-0.35,0.15,scene)
+    var box7 = util.addCube(0.1,0.5,0.1,modelBaseURL + 'textures/Barn_Raw_Wood_baseColor.jpeg',0.5,-0.35,0.05,scene)
     domEvent.addEventListener(box1, 'click', event =>{
-        box1.position.set(box1.position.x - 0.1,box1.position.y,box1.position.z);
-        scene.add(box1);
+        if(box1.position.x < 0.78 ){
+            box1.position.set(box1.position.x + 0.05,box1.position.y,box1.position.z);
+            scene.add(box1);
+        }
     })
-    domEvent.addEventListener(box2, 'click', event =>{
-        box2.position.set(box2.position.x - 0.1,box2.position.y,box2.position.z);
-        scene.add(box2);
-    })
-    domEvent.addEventListener(box3, 'click', event =>{
-        box3.position.set(box3.position.x - 0.1,box3.position.y,box3.position.z);
-        scene.add(box3);
-    })
+    // domEvent.addEventListener(box2, 'click', event =>{
+    //     box2.position.set(box2.position.x - 0.1,box2.position.y,box2.position.z);
+    //     scene.add(box2);
+    // })
+    // domEvent.addEventListener(box3, 'click', event =>{
+    //     box3.position.set(box3.position.x - 0.1,box3.position.y,box3.position.z);
+    //     scene.add(box3);
+    // })
     
     
     function render(time) {
