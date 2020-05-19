@@ -5,6 +5,7 @@ gameBlock.style.display = "block";
 document.getElementById("exit").addEventListener("click", event => {
     questionBlock.style.display = "none";
     gameBlock.style.display = "block";
+    
 });
 
 import * as THREE from '../build/three.module.js';
