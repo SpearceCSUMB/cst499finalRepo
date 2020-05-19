@@ -251,6 +251,7 @@ function main() {
                 util.collidableObjects.push(child);
                 domEvent.addEventListener(child,'click', event =>{
                     if (completedTask == 0){
+                        document.exitPointerLock();
                         questionBlock.style.display = "block";
                         gameBlock.style.display = "none";
                         
