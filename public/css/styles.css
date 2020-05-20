@@ -13,6 +13,13 @@ nav {
     font-weight: 500;
     font-family: 'Roboto', sans-serif;
     padding-top: 23px;
+}
+
+#header-nav {
+    font-size: 17px;
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
+    padding-top: 23px;
     animation: slide_down 0.4s ease-in;
 }
 
@@ -79,7 +86,7 @@ nav .current {
 .footer-container {
     display: flex;
     justify-content: space-evenly;
-    height: 220px;
+    height: 340px;
     max-width: 1324px;
     margin-left: 50%;
     margin-right: 50%;
@@ -129,7 +136,7 @@ nav .current {
 }
 
 .team-logo, .csumb-logo {
-    padding-top: 10px;
+    padding-top: 48px;
 }
 
 .footer-title-text {
