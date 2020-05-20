@@ -452,12 +452,37 @@ function main() {
         }
     );
 
-    
+    var map = util.loadgltfModel(modelBaseURL + 'world_map_color_3d_scan/scene.gltf',scene,-0.145,-0.155,-0.465);
 
 
     //util.loadgltfModel(modelBaseURL + 'ladder.glb',scene,ladderMat);
     
     var table = util.loadgltfModel(modelBaseURL + 'table.glb',scene,0.37,-0.2,0.04);
+
+    // ============= Room #3 ==========================
+    var cbox11 = util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene,-0.428,-0.2,-0.261);
+    var cbox12 = util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene,-0.39,-0.2,-0.261);
+    var cbox13 = util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene,-0.352,-0.2,-0.261);
+    var cbox14 = util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene,-0.314,-0.2,-0.261);
+    var cbox15 = util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene,-0.276,-0.2,-0.261);
+    var cbox21 = util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene,-0.428,-0.163,-0.261);
+    var cbox22 = util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene,-0.39,-0.163,-0.261);
+    var cbox23 = util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene,-0.352,-0.163,-0.261);
+    var cbox24 = util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene,-0.314,-0.163,-0.261);
+    var barrel1 = util.loadgltfModel(modelBaseURL + 'metal_barrel/scene.gltf',scene,-0.39,-0.165,-0.03);
+    var barrel2 = util.loadgltfModel(modelBaseURL + 'metal_barrel/scene.gltf',scene,-0.361,-0.165,-0.03);
+    var barrel3 = util.loadgltfModel(modelBaseURL + 'metal_barrel/scene.gltf',scene,-0.39,-0.1635,-0.059);
+    var crate1 = util.loadgltfModel(modelBaseURL + 'crate/scene.gltf',scene,-0.3,-0.175,-0.035);
+
+
+
+    // Puzzle objects
+    var vehicle = util.loadgltfModel(modelBaseURL + 'm725_military_ambulance/scene.gltf',scene,0.33,-0.155,-0.32);
+    var crate = util.loadgltfModel(modelBaseURL + 'crate/scene.gltf',scene,0.3,-0.175,0.315);
+    var safe = util.loadgltfModel(modelBaseURL + 'safe/scene.gltf',scene,-0.35,-0.2,-0.011);
+    var keypad = util.loadgltfModel(modelBaseURL + 'keypad/scene.gltf',scene,-0.0835,-0.155,0.464);
+
+
     
     //util.loadgltfModel(modelBaseURL + 'toolbox.glb',scene, new THREE.Matrix4());
 // --------------------------------------------------------------
