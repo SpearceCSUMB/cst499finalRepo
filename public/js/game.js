@@ -239,6 +239,11 @@ function main() {
     scene.add( ambient );
             
     // ------------------------Game Control --------------------------------
+        // Puzzle objects
+        // var vehicle = util.loadgltfModel(modelBaseURL + 'm725_military_ambulance/scene.gltf',scene,0.33,-0.155,-0.32);
+        // var crate = util.loadgltfModel(modelBaseURL + 'crate/scene.gltf',scene,0.3,-0.175,0.315);
+        // var safe = util.loadgltfModel(modelBaseURL + 'safe/scene.gltf',scene,-0.35,-0.2,-0.011);
+        // var keypad = util.loadgltfModel(modelBaseURL + 'keypad/scene.gltf',scene,-0.0835,-0.155,0.464);
     // Load a glTF resource for question 1
     loader.load(
     // resource URL
@@ -264,94 +269,94 @@ function main() {
             scene.add( gltf.scene );
         });
 
-    // // Load a glTF resource for question 2
-    // loader.load(
-    //     // resource URL
-    //         modelBaseURL + 'cardboard_box.glb',
-    //         // called when the resource is loaded
-    //         function ( gltf ) {              
+    // Load a glTF resource for question 2
+    loader.load(
+        // resource URL
+            modelBaseURL + 'm725_military_ambulance/scene.gltf',
+            // called when the resource is loaded
+            function ( gltf ) {              
          
-    //             gltf.scene.traverse( child => {
-    //             if ( child.material ) child.material.metalness = 0.1;
-    //                 child.position.set(0.37,-0.165,0.04);
-    //                 util.collidableObjects.push(child);
-    //                 domEvent.addEventListener(child,'click', event =>{
-    //                     if (completedTask == 1){
-    //                         questionBlock.style.display = "block";
-    //                         gameBlock.style.display = "none";
+                gltf.scene.traverse( child => {
+                if ( child.material ) child.material.metalness = 0.1;
+                    child.position.set(0.33,-0.155,-0.32);
+                    util.collidableObjects.push(child);
+                    domEvent.addEventListener(child,'click', event =>{
+                        if (completedTask == 1){
+                            questionBlock.style.display = "block";
+                            gameBlock.style.display = "none";
                                                         
-    //                     } 
+                        } 
                                     
-    //                 })
-    //             });
-    //             scene.add( gltf.scene );
-    //         });
-    // // Load a glTF resource for question 3
-    // loader.load(
-    //     // resource URL
-    //         modelBaseURL + 'cardboard_box.glb',
-    //         // called when the resource is loaded
-    //         function ( gltf ) {              
+                    })
+                });
+                scene.add( gltf.scene );
+            });
+    // Load a glTF resource for question 3
+    loader.load(
+        // resource URL
+            modelBaseURL + 'crate/scene.gltf',
+            // called when the resource is loaded
+            function ( gltf ) {              
          
-    //             gltf.scene.traverse( child => {
-    //             if ( child.material ) child.material.metalness = 0.1;
-    //                 child.position.set(0.37,-0.165,0.04);
-    //                 util.collidableObjects.push(child);
-    //                 domEvent.addEventListener(child,'click', event =>{
-    //                     if (completedTask == 2){
-    //                         questionBlock.style.display = "block";
-    //                         gameBlock.style.display = "none";
+                gltf.scene.traverse( child => {
+                if ( child.material ) child.material.metalness = 0.1;
+                    child.position.set(0.3,-0.175,0.315);
+                    util.collidableObjects.push(child);
+                    domEvent.addEventListener(child,'click', event =>{
+                        if (completedTask == 2){
+                            questionBlock.style.display = "block";
+                            gameBlock.style.display = "none";
                                                         
-    //                     } 
+                        } 
                                     
-    //                 })
-    //             });
-    //             scene.add( gltf.scene );
-    //         });  
-    // // Load a glTF resource for question 4
-    // loader.load(
-    //     // resource URL
-    //         modelBaseURL + 'cardboard_box.glb',
-    //         // called when the resource is loaded
-    //         function ( gltf ) {              
+                    })
+                });
+                scene.add( gltf.scene );
+            });  
+    // Load a glTF resource for question 4
+    loader.load(
+        // resource URL
+            modelBaseURL + 'safe/scene.gltf',
+            // called when the resource is loaded
+            function ( gltf ) {              
          
-    //             gltf.scene.traverse( child => {
-    //             if ( child.material ) child.material.metalness = 0.1;
-    //                 child.position.set(0.37,-0.165,0.04);
-    //                 util.collidableObjects.push(child);
-    //                 domEvent.addEventListener(child,'click', event =>{
-    //                     if (completedTask == 3){
-    //                         questionBlock.style.display = "block";
-    //                         gameBlock.style.display = "none";
+                gltf.scene.traverse( child => {
+                if ( child.material ) child.material.metalness = 0.1;
+                    child.position.set(-0.35,-0.2,-0.011);
+                    util.collidableObjects.push(child);
+                    domEvent.addEventListener(child,'click', event =>{
+                        if (completedTask == 3){
+                            questionBlock.style.display = "block";
+                            gameBlock.style.display = "none";
                                                         
-    //                     } 
+                        } 
                                     
-    //                 })
-    //             });
-    //             scene.add( gltf.scene );
-    //         });  
-    // // Load a glTF resource for question 5
-    // loader.load(
-    //     // resource URL
-    //         modelBaseURL + 'cardboard_box.glb',
-    //         // called when the resource is loaded
-    //         function ( gltf ) {              
+                    })
+                });
+                scene.add( gltf.scene );
+            });  
+    // Load a glTF resource for question 5
+    loader.load(
+        // resource URL
+            modelBaseURL + 'keypad/scene.gltf',
+            // called when the resource is loaded
+            function ( gltf ) {              
          
-    //             gltf.scene.traverse( child => {
-    //             if ( child.material ) child.material.metalness = 0.1;
-    //                 child.position.set(0.37,-0.165,0.04);
-    //                 util.collidableObjects.push(child);
-    //                 domEvent.addEventListener(child,'click', event =>{
-    //                     if (completedTask == 4){
-    //                         questionBlock.style.display = "block";
-    //                         gameBlock.style.display = "none";
+                gltf.scene.traverse( child => {
+                if ( child.material ) child.material.metalness = 0.1;
+                    child.position.set(-0.0835,-0.155,0.464);
+                    util.collidableObjects.push(child);
+                    domEvent.addEventListener(child,'click', event =>{
+                        if (completedTask == 4){
+                            questionBlock.style.display = "block";
+                            gameBlock.style.display = "none";
                                                         
-    //                     } 
+                        } 
                                     
-    //                 })
-    //             });
-    //             scene.add( gltf.scene );
-    //         });                                      
+                    })
+                });
+                scene.add( gltf.scene );
+            });                                      
 // ----------------------- End Game Control --------------------------------
     {
         //THREE.ImageUtils.crossOrigin = '';
@@ -452,35 +457,31 @@ function main() {
         }
     );
 
-    var map = util.loadgltfModel(modelBaseURL + 'world_map_color_3d_scan/scene.gltf',scene,-0.145,-0.155,-0.465);
+    util.loadgltfModel(modelBaseURL + 'world_map_color_3d_scan/scene.gltf',scene,-0.145,-0.155,-0.465);
 
 
     //util.loadgltfModel(modelBaseURL + 'ladder.glb',scene,ladderMat);
     
-    var table = util.loadgltfModel(modelBaseURL + 'table.glb',scene,0.37,-0.2,0.04);
+    util.loadgltfModel(modelBaseURL + 'table.glb',scene,0.37,-0.2,0.04);
 
     // ============= Room #3 ==========================
-    var cbox11 = util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene,-0.428,-0.2,-0.261);
-    var cbox12 = util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene,-0.39,-0.2,-0.261);
-    var cbox13 = util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene,-0.352,-0.2,-0.261);
-    var cbox14 = util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene,-0.314,-0.2,-0.261);
-    var cbox15 = util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene,-0.276,-0.2,-0.261);
-    var cbox21 = util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene,-0.428,-0.163,-0.261);
-    var cbox22 = util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene,-0.39,-0.163,-0.261);
-    var cbox23 = util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene,-0.352,-0.163,-0.261);
-    var cbox24 = util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene,-0.314,-0.163,-0.261);
-    var barrel1 = util.loadgltfModel(modelBaseURL + 'metal_barrel/scene.gltf',scene,-0.39,-0.165,-0.03);
-    var barrel2 = util.loadgltfModel(modelBaseURL + 'metal_barrel/scene.gltf',scene,-0.361,-0.165,-0.03);
-    var barrel3 = util.loadgltfModel(modelBaseURL + 'metal_barrel/scene.gltf',scene,-0.39,-0.1635,-0.059);
-    var crate1 = util.loadgltfModel(modelBaseURL + 'crate/scene.gltf',scene,-0.3,-0.175,-0.035);
+    util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene,-0.428,-0.2,-0.261);
+    util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene,-0.39,-0.2,-0.261);
+    util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene,-0.352,-0.2,-0.261);
+    util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene,-0.314,-0.2,-0.261);
+    util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene,-0.276,-0.2,-0.261);
+    util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene,-0.428,-0.163,-0.261);
+    util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene,-0.39,-0.163,-0.261);
+    util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene,-0.352,-0.163,-0.261);
+    util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene,-0.314,-0.163,-0.261);
+    util.loadgltfModel(modelBaseURL + 'metal_barrel/scene.gltf',scene,-0.39,-0.165,-0.03);
+    util.loadgltfModel(modelBaseURL + 'metal_barrel/scene.gltf',scene,-0.361,-0.165,-0.03);
+    util.loadgltfModel(modelBaseURL + 'metal_barrel/scene.gltf',scene,-0.39,-0.1635,-0.059);
+    util.loadgltfModel(modelBaseURL + 'crate/scene.gltf',scene,-0.3,-0.175,-0.035);
 
 
 
-    // Puzzle objects
-    var vehicle = util.loadgltfModel(modelBaseURL + 'm725_military_ambulance/scene.gltf',scene,0.33,-0.155,-0.32);
-    var crate = util.loadgltfModel(modelBaseURL + 'crate/scene.gltf',scene,0.3,-0.175,0.315);
-    var safe = util.loadgltfModel(modelBaseURL + 'safe/scene.gltf',scene,-0.35,-0.2,-0.011);
-    var keypad = util.loadgltfModel(modelBaseURL + 'keypad/scene.gltf',scene,-0.0835,-0.155,0.464);
+
 
 
     
