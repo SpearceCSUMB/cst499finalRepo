@@ -291,6 +291,7 @@ function main() {
                 });
                 scene.add( gltf.scene );
             });
+
     // Load a glTF resource for question 3
     loader.load(
         // resource URL
@@ -300,7 +301,7 @@ function main() {
          
                 gltf.scene.traverse( child => {
                 if ( child.material ) child.material.metalness = 0.1;
-                    child.position.set(0.3,-0.175,0.315);
+                    child.position.set(0.3,-0.18,0.313);
                     util.collidableObjects.push(child);
                     domEvent.addEventListener(child,'click', event =>{
                         if (completedTask == 2){
@@ -312,7 +313,8 @@ function main() {
                     })
                 });
                 scene.add( gltf.scene );
-            });  
+            });
+
     // Load a glTF resource for question 4
     loader.load(
         // resource URL
@@ -334,7 +336,8 @@ function main() {
                     })
                 });
                 scene.add( gltf.scene );
-            });  
+            });
+
     // Load a glTF resource for question 5
     loader.load(
         // resource URL
@@ -457,43 +460,63 @@ function main() {
         }
     );
 
+    // ======== Main common area =====================
     util.loadgltfModel(modelBaseURL + 'world_map_color_3d_scan/scene.gltf',scene,-0.145,-0.155,-0.465);
+    util.loadgltfModel(modelBaseURL + 'the_matrix_red_chesterfield_chair/scene.gltf',scene,0.16,-0.185,0.41);
+    util.loadgltfModel(modelBaseURL + 'messy_tack_board/scene.gltf',scene,0.225,-0.15,0.055);
 
-
-    //util.loadgltfModel(modelBaseURL + 'ladder.glb',scene,ladderMat);
-    
-    util.loadgltfModel(modelBaseURL + 'table.glb',scene,0.37,-0.2,0.04);
+    // ============= Room #1 ==========================
+    util.loadgltfModel(modelBaseURL + 'caroline_harrison_piano_-_preview/scene.gltf',scene,-0.43,-0.2,-0.325);
 
     // ============= Room #3 ==========================
-    util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene,-0.428,-0.2,-0.261);
-    util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene,-0.39,-0.2,-0.261);
-    util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene,-0.352,-0.2,-0.261);
-    util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene,-0.314,-0.2,-0.261);
-    util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene,-0.276,-0.2,-0.261);
-    util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene,-0.428,-0.163,-0.261);
-    util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene,-0.39,-0.163,-0.261);
-    util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene,-0.352,-0.163,-0.261);
-    util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene,-0.314,-0.163,-0.261);
+    util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene,-0.433,-0.2,-0.265);
+    util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene,-0.403,-0.2,-0.265);
+    util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene,-0.373,-0.2,-0.265);
+    util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene,-0.343,-0.2,-0.265);
+    util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene,-0.313,-0.2,-0.265);
+    util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene,-0.433,-0.17,-0.265);
+    util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene,-0.403,-0.17,-0.265);
+    util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene,-0.373,-0.17,-0.265);
+    util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene,-0.343,-0.17,-0.265);
+    util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene,-0.433,-0.14,-0.265);
+    util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene,-0.403,-0.14,-0.265);
+    util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene,-0.373,-0.14,-0.265);
     util.loadgltfModel(modelBaseURL + 'metal_barrel/scene.gltf',scene,-0.39,-0.165,-0.03);
     util.loadgltfModel(modelBaseURL + 'metal_barrel/scene.gltf',scene,-0.361,-0.165,-0.03);
     util.loadgltfModel(modelBaseURL + 'metal_barrel/scene.gltf',scene,-0.39,-0.1635,-0.059);
-    util.loadgltfModel(modelBaseURL + 'crate/scene.gltf',scene,-0.3,-0.175,-0.035);
+    util.loadgltfModel(modelBaseURL + 'crate/scene.gltf',scene,-0.3,-0.18,-0.030);
+    util.loadgltfModel(modelBaseURL + 'old_tires_-_dirt_low_poly/scene.gltf',scene,-0.28,-0.149,-0.15);
 
+    // ============= Room #4 ==========================
+    util.loadgltfModel(modelBaseURL + 'old_hutch/scene.gltf',scene,0.27,-0.198,-0.0012);
+    
+    // ============= Room #5 ==========================
+    util.loadgltfModel(modelBaseURL + 'crate/scene.gltf',scene,-0.425,-0.18,0.018); // crate#1
+    util.loadgltfModel(modelBaseURL + 'crate/scene.gltf',scene,-0.38,-0.18,0.018); // crate#2
+    util.loadgltfModel(modelBaseURL + 'fridge/scene.gltf',scene,-0.4,-0.205,0.06); // refridgerator
 
+    // ============= Room #6 ==========================
+    util.loadgltfModel(modelBaseURL + 'table.glb',scene,0.37,-0.2,0.04);
 
-
-
-
+    // ============= Room #8 ==========================
+    util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene, 0.373, -0.2, 0.3082);
+    util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene, 0.343, -0.2, 0.3082);
+    util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene, 0.433, -0.2, 0.338);
+    util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene, 0.403, -0.2, 0.338);
+    util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene, 0.403, -0.17, 0.3082);
+    util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene, 0.373, -0.17, 0.3082);
+    util.loadgltfModel(modelBaseURL + 'cardboard_box.glb',scene, 0.433, -0.17, 0.338);
+    util.loadgltfModel(modelBaseURL + 'fiberglass_step_ladder_6_new/scene.gltf',scene, 0.248, -0.20, 0.311);
     
     //util.loadgltfModel(modelBaseURL + 'toolbox.glb',scene, new THREE.Matrix4());
 // --------------------------------------------------------------
-    var box1 = util.addCube(0.1,0.15,0.07,modelBaseURL + 'textures/Barn_Raw_Wood_baseColor.jpeg',0.5,-0.35,0.535,scene)
-    var box2 = util.addCube(0.1,0.5,0.1,modelBaseURL + 'textures/Barn_Raw_Wood_baseColor.jpeg',0.5,-0.35,0.45,scene)
-    var box3 = util.addCube(0.1,0.5,0.1,modelBaseURL + 'textures/Barn_Raw_Wood_baseColor.jpeg',0.5,-0.35,0.35,scene)
-    var box4 = util.addCube(0.1,0.175,0.07,modelBaseURL + 'textures/Barn_Raw_Wood_baseColor.jpeg',0.5,-0.188,0.535,scene)
-    var box5 = util.addCube(0.1,0.5,0.1,modelBaseURL + 'textures/Barn_Raw_Wood_baseColor.jpeg',0.5,-0.35,0.25,scene)
-    var box6 = util.addCube(0.1,0.5,0.1,modelBaseURL + 'textures/Barn_Raw_Wood_baseColor.jpeg',0.5,-0.35,0.15,scene)
-    var box7 = util.addCube(0.1,0.5,0.1,modelBaseURL + 'textures/Barn_Raw_Wood_baseColor.jpeg',0.5,-0.35,0.05,scene)
+    var box1 = util.addCube(0.1,0.15,0.08,modelBaseURL + 'textures/Barn_Raw_Wood_baseColor.jpeg',0.5,-0.35,0.535,scene)
+    var box2 = util.addCube(0.1,0.6,0.1,modelBaseURL + 'textures/Barn_Raw_Wood_baseColor.jpeg',0.5,-0.35,0.45,scene)
+    var box3 = util.addCube(0.1,0.6,0.1,modelBaseURL + 'textures/Barn_Raw_Wood_baseColor.jpeg',0.5,-0.35,0.35,scene)
+    var box4 = util.addCube(0.1,0.275,0.08,modelBaseURL + 'textures/Barn_Raw_Wood_baseColor.jpeg',0.5,-0.1375,0.535,scene)
+    var box5 = util.addCube(0.1,0.6,0.1,modelBaseURL + 'textures/Barn_Raw_Wood_baseColor.jpeg',0.5,-0.35,0.25,scene)
+    var box6 = util.addCube(0.1,0.6,0.1,modelBaseURL + 'textures/Barn_Raw_Wood_baseColor.jpeg',0.5,-0.35,0.15,scene)
+    var box7 = util.addCube(0.1,0.6,0.1,modelBaseURL + 'textures/Barn_Raw_Wood_baseColor.jpeg',0.5,-0.35,0.05,scene)
     domEvent.addEventListener(box1, 'click', event =>{
         if(box1.position.x < 0.78 ){
             box1.position.set(box1.position.x + 0.05,box1.position.y,box1.position.z);
