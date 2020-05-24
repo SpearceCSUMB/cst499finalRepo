@@ -584,7 +584,7 @@ document.getElementById("exitTest").onclick = function() {
     takingTest = false; 
     questionBlock.style.display = "none";
     gameBlock.style.display = "block";
-    requestPointerLock();
+    element.requestPointerLock();
 
 };
 
