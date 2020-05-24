@@ -1,17 +1,27 @@
 <%- include('partials/header') %>
-    <div id = "question" class="game-stage-container" >
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="module" src="js/game.js"></script>
+    <div id = "questionBox" class="game-stage-container" >
         <form id = "question" method = "post" >
 
-            <input type ="text" name = "codeEnter" rows="10">
+            To move the box, you need to write a function called addNumbers that accepts two parameters and returns their sum.: <br>
+            <textarea id="enteredCode" name="enteredCode" rows="15" cols="40">
+    function addNumbers(a,b) {
+        return 0;//Fix this!
+    }
+            </textarea>
             <br>
-            <button type = "submit">Submit</button>
-            <button id = "exit" type = "reset">Exit</button>    
+            <button id="submitCode" type="button" onClick="">Submit</button>
+            <button id = "exitTest" type = "reset">Exit</button>    
         </form>
+        <div id="results">
+
+        </div>
         
     </div>
     <div id = "threejs" class="game-stage-container">
         
-        <script type="module" src="js/game.js"></script>
+        
         <canvas id="c" width="800" height="400"></canvas>
         
     </div>

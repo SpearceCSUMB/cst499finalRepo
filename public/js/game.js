@@ -1,12 +1,15 @@
-var questionBlock = document.getElementById("question");
+
+var questionBlock = document.getElementById("questionBox");
 var gameBlock = document.getElementById("threejs");
 questionBlock.style.display = "none";
 gameBlock.style.display = "block";
-document.getElementById("exit").addEventListener("click", event => {
+document.getElementById("exitTest").addEventListener("click", event => {
     questionBlock.style.display = "none";
     gameBlock.style.display = "block";
     
 });
+
+
 
 import * as THREE from '../build/three.module.js';
 import {GLTFLoader} from '../jsm/loaders/GLTFLoader.js';
@@ -22,7 +25,7 @@ var loader = new GLTFLoader();
 document.addEventListener('keydown', util.onKeyDown, false);
 document.addEventListener('keyup', util.onKeyUp, false);
 //var modelBaseURL = "http://34.106.223.239/gltf/";
-var modelBaseURL = "http://localhost:3000/gltf/";
+var modelBaseURL = "http://localhost:3300/gltf/";
 // game flow control
 var completedTask = 0;
 // Velocity vector for the player
@@ -33,6 +36,7 @@ var PLAYERSPEED = 15.0;
 var playerFloor = -0.25;
 var clock;
 var controls;
+var takingTest = false;
 
 clock = new THREE.Clock();
 
@@ -59,6 +63,9 @@ if ( havePointerLock ) {
     document.addEventListener( 'mozpointerlockerror', pointerlockerror, false );
     document.addEventListener( 'webkitpointerlockerror', pointerlockerror, false );
     document.addEventListener( 'click', function ( event ) {
+        if(takingTest) {
+            return;
+        }
         // Ask the browser to lock the pointer
         element.requestPointerLock = element.requestPointerLock || element.mozRequestPointerLock || element.webkitRequestPointerLock;
         if ( /Firefox/i.test( navigator.userAgent ) ) {
@@ -114,6 +121,9 @@ if ( havePointerLock ) {
     document.addEventListener( 'mozpointerlockerror', pointerlockerror, false );
     document.addEventListener( 'webkitpointerlockerror', pointerlockerror, false );
     document.addEventListener( 'click', function ( event ) {
+        if(takingTest) {
+            return;
+        }
         // Ask the browser to lock the pointer
         element.requestPointerLock = element.requestPointerLock || element.mozRequestPointerLock || element.webkitRequestPointerLock;
         if ( /Firefox/i.test( navigator.userAgent ) ) {
@@ -257,6 +267,7 @@ function main() {
                 util.collidableObjects.push(child);
                 domEvent.addEventListener(child,'click', event =>{
                     if (completedTask == 0){
+                        takingTest = true;
                         document.exitPointerLock();
                         questionBlock.style.display = "block";
                         gameBlock.style.display = "none";
@@ -549,4 +560,32 @@ function main() {
     onWindowResize();
     requestAnimationFrame(render);
 }
+
+function testResults(form) {
+    try {
+        var num1 = 20;
+        var num2 = 30;
+        var testCode = document.getElementById("enteredCode").value;
+        var value = eval(testCode + "\addNumbers(" + num1 + "," + num2 +");"); 
+        var message = "Wrong!"
+        if(value == num1 + num2) {
+            message = "You are correct!"
+        }        
+        $("#results").html(message);
+    }
+    catch(err) {
+            $("#results").html("Your code threw an exception: " + err);
+    }
+}
+
+document.getElementById("submitCode").onclick = testResults;
+
+document.getElementById("exitTest").onclick = function() {
+    takingTest = false; 
+    questionBlock.style.display = "none";
+    gameBlock.style.display = "block";
+    requestPointerLock();
+
+};
+
 main();
