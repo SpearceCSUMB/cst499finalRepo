@@ -25,7 +25,7 @@ var loader = new GLTFLoader();
 document.addEventListener('keydown', util.onKeyDown, false);
 document.addEventListener('keyup', util.onKeyUp, false);
 //var modelBaseURL = "http://34.106.223.239/gltf/";
-var modelBaseURL = "http://localhost:3300/gltf/";
+var modelBaseURL = "http://localhost:3000/gltf/";
 // game flow control
 var completedTask = 0;
 // Velocity vector for the player
@@ -250,10 +250,10 @@ function main() {
             
     // ------------------------Game Control --------------------------------
         // Puzzle objects
-        // var vehicle = util.loadgltfModel(modelBaseURL + 'm725_military_ambulance/scene.gltf',scene,0.33,-0.155,-0.32);
-        // var crate = util.loadgltfModel(modelBaseURL + 'crate/scene.gltf',scene,0.3,-0.175,0.315);
-        // var safe = util.loadgltfModel(modelBaseURL + 'safe/scene.gltf',scene,-0.35,-0.2,-0.011);
-        // var keypad = util.loadgltfModel(modelBaseURL + 'keypad/scene.gltf',scene,-0.0835,-0.155,0.464);
+         var vehicle = util.loadgltfModel(modelBaseURL + 'm725_military_ambulance/scene.gltf',scene,0.33,-0.155,-0.32);
+         var crate = util.loadgltfModel(modelBaseURL + 'crate/scene.gltf',scene,0.3,-0.175,0.315);
+         var safe = util.loadgltfModel(modelBaseURL + 'safe/scene.gltf',scene,-0.35,-0.2,-0.011);
+         var keypad = util.loadgltfModel(modelBaseURL + 'keypad/scene.gltf',scene,-0.0835,-0.155,0.464);
     // Load a glTF resource for question 1
     loader.load(
     // resource URL
