@@ -1,24 +1,99 @@
 <%- include('partials/header') %>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="module" src="js/game.js"></script>
-    <div id = "questionBox" class="game-stage-container" >
-        <form id = "question" method = "post" >
+<!------------------Question 1 Block --------------------------->    
+    <div id = "questionBox1" class="game-stage-container" >
+        <form id = "question1" method = "post" >
 
             To move the box, you need to write a function called addNumbers that accepts two parameters and returns their sum.: <br>
-            <textarea id="enteredCode" name="enteredCode" rows="15" cols="40">
+            <textarea id="enteredCode1" name="enteredCode1" rows="15" cols="60">
     function addNumbers(a,b) {
         return 0;//Fix this!
     }
             </textarea>
             <br>
-            <button id="submitCode" type="button" onClick="">Submit</button>
-            <button id = "exitTest" type = "reset">Exit</button>    
+            <button id="submitCode1" type="button" onClick="">Submit</button>
+            <button id = "exitTest1" type = "reset">Exit</button>    
         </form>
-        <div id="results">
+        <div id="results1">
 
         </div>
         
     </div>
+<!------------------Question 2 Block ---------------------------> 
+<div id = "questionBox2" class="game-stage-container" >
+    <form id = "question2" method = "post" >
+
+        Create a loop that counts a variable 'count' to 100 <br>
+        <textarea id="enteredCode2" name="enteredCode2" rows="15" cols="60">
+        </textarea>
+        <br>
+        <button id="submitCode2" type="button" onClick="">Submit</button>
+        <button id = "exitTest2" type = "reset">Exit</button>    
+    </form>
+    <div id="results2">
+
+    </div>
+    
+</div>   
+<!------------------Question 3 Block --------------------------->    
+<div id = "questionBox3" class="game-stage-container" >
+    <form id = "question2" method = "post" >
+
+        Create a conditional if statement that returns true if the value is greater then or equal to
+        50, or it returns false : <br>
+        <textarea id="enteredCode3" name="enteredCode3" rows="15" cols="60">
+function conditionalIf(value) {
+    return 0;//Fix this!
+}
+        </textarea>
+        <br>
+        <button id="submitCode3" type="button" onClick="">Submit</button>
+        <button id = "exitTest3" type = "reset">Exit</button>    
+    </form>
+    <div id="results3">
+
+    </div>
+    
+</div>   
+<!------------------Question 4 Block --------------------------->    
+<div id = "questionBox4" class="game-stage-container" >
+    <form id = "question4" method = "post" >
+
+        Create an Array named 'array' and fill it with the values 10, 20, 30 ,40 in that order: <br>
+        <textarea id="enteredCode4" name="enteredCode4" rows="15" cols="60">
+        </textarea>
+        <br>
+        <button id="submitCode4" type="button" onClick="">Submit</button>
+        <button id = "exitTest4" type = "reset">Exit</button>    
+    </form>
+    <div id="results4">
+
+    </div>
+    
+</div>   
+<!------------------Question 5 Block --------------------------->    
+<div id = "questionBox5" class="game-stage-container" >
+    <form id = "question5" method = "post" >
+
+        Create an recursion function that returns the factorial of a given number: <br>
+        <textarea id="enteredCode5" name="enteredCode5" rows="15" cols="60">
+function factorial(num) {
+    return 0;//Fix this!
+}
+        </textarea>
+        <br>
+        <button id="submitCode5" type="button" onClick="">Submit</button>
+        <button id = "exitTest5" type = "reset">Exit</button>    
+    </form>
+    <div id="results5">
+
+    </div>
+    
+</div>   
+
+<!------------------    Start game   --------------------------->    
+    
     <div id = "threejs" class="game-stage-container">
         
         

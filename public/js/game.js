@@ -1,13 +1,21 @@
 
-var questionBlock = document.getElementById("questionBox");
+var questionBlock1 = document.getElementById("questionBox1");
+var questionBlock2 = document.getElementById("questionBox2");
+var questionBlock3 = document.getElementById("questionBox3");
+var questionBlock4 = document.getElementById("questionBox4");
+var questionBlock5 = document.getElementById("questionBox5");
 var gameBlock = document.getElementById("threejs");
-questionBlock.style.display = "none";
+questionBlock1.style.display = "none";
+questionBlock2.style.display = "none";
+questionBlock3.style.display = "none";
+questionBlock4.style.display = "none";
+questionBlock5.style.display = "none";
 gameBlock.style.display = "block";
-document.getElementById("exitTest").addEventListener("click", event => {
-    questionBlock.style.display = "none";
-    gameBlock.style.display = "block";
+// document.getElementById("exitTest").addEventListener("click", event => {
+//     questionBlock.style.display = "none";
+//     gameBlock.style.display = "block";
     
-});
+// });
 
 
 
@@ -250,10 +258,6 @@ function main() {
             
     // ------------------------Game Control --------------------------------
         // Puzzle objects
-         var vehicle = util.loadgltfModel(modelBaseURL + 'm725_military_ambulance/scene.gltf',scene,0.33,-0.155,-0.32);
-         var crate = util.loadgltfModel(modelBaseURL + 'crate/scene.gltf',scene,0.3,-0.175,0.315);
-         var safe = util.loadgltfModel(modelBaseURL + 'safe/scene.gltf',scene,-0.35,-0.2,-0.011);
-         var keypad = util.loadgltfModel(modelBaseURL + 'keypad/scene.gltf',scene,-0.0835,-0.155,0.464);
     // Load a glTF resource for question 1
     loader.load(
     // resource URL
@@ -269,7 +273,7 @@ function main() {
                     if (completedTask == 0){
                         takingTest = true;
                         document.exitPointerLock();
-                        questionBlock.style.display = "block";
+                        questionBlock1.style.display = "block";
                         gameBlock.style.display = "none";
                         
                                                     
@@ -280,97 +284,106 @@ function main() {
             scene.add( gltf.scene );
         });
 
-    // // Load a glTF resource for question 2
-    // loader.load(
-    //     // resource URL
-    //         modelBaseURL + 'm725_military_ambulance/scene.gltf',
-    //         // called when the resource is loaded
-    //         function ( gltf ) {              
+    // Load a glTF resource for question 2
+    loader.load(
+        // resource URL
+            modelBaseURL + 'm725_military_ambulance/scene.gltf',
+            // called when the resource is loaded
+            function ( gltf ) {              
          
-    //             gltf.scene.traverse( child => {
-    //             if ( child.material ) child.material.metalness = 0.1;
-    //                 child.position.set(0.33,-0.155,-0.32);
-    //                 util.collidableObjects.push(child);
-    //                 domEvent.addEventListener(child,'click', event =>{
-    //                     if (completedTask == 1){
-    //                         questionBlock.style.display = "block";
-    //                         gameBlock.style.display = "none";
-                                                        
-    //                     } 
+                gltf.scene.traverse( child => {
+                if ( child.material ) child.material.metalness = 0.1;
+                    child.position.set(0.33,-0.155,-0.32);
+                    util.collidableObjects.push(child);
+                    domEvent.addEventListener(child,'click', event =>{
+                        if (completedTask == 1){
+                            takingTest = true;
+                            document.exitPointerLock();
+                            questionBlock2.style.display = "block";
+                            gameBlock.style.display = "none";
+                        } 
                                     
-    //                 })
-    //             });
-    //             scene.add( gltf.scene );
-    //         });
+                    })
+                });
+                scene.add( gltf.scene );
+            });
 
-    // // Load a glTF resource for question 3
-    // loader.load(
-    //     // resource URL
-    //         modelBaseURL + 'crate/scene.gltf',
-    //         // called when the resource is loaded
-    //         function ( gltf ) {              
+    // Load a glTF resource for question 3
+    loader.load(
+        // resource URL
+            modelBaseURL + 'crate/scene.gltf',
+            // called when the resource is loaded
+            function ( gltf ) {              
          
-    //             gltf.scene.traverse( child => {
-    //             if ( child.material ) child.material.metalness = 0.1;
-    //                 child.position.set(0.3,-0.18,0.313);
-    //                 util.collidableObjects.push(child);
-    //                 domEvent.addEventListener(child,'click', event =>{
-    //                     if (completedTask == 2){
-    //                         questionBlock.style.display = "block";
-    //                         gameBlock.style.display = "none";
+                gltf.scene.traverse( child => {
+                if ( child.material ) child.material.metalness = 0.1;
+                    child.position.set(0.3,-0.18,0.313);
+                    util.collidableObjects.push(child);
+                    domEvent.addEventListener(child,'click', event =>{
+                        if (completedTask == 2){
+                            takingTest = true;
+                            document.exitPointerLock();
+                            questionBlock3.style.display = "block";
+                            gameBlock.style.display = "none";
+                         
                                                         
-    //                     } 
+                        } 
                                     
-    //                 })
-    //             });
-    //             scene.add( gltf.scene );
-    //         });
+                    })
+                });
+                scene.add( gltf.scene );
+            });
 
-    // // Load a glTF resource for question 4
-    // loader.load(
-    //     // resource URL
-    //         modelBaseURL + 'safe/scene.gltf',
-    //         // called when the resource is loaded
-    //         function ( gltf ) {              
+    // Load a glTF resource for question 4
+    loader.load(
+        // resource URL
+            modelBaseURL + 'safe/scene.gltf',
+            // called when the resource is loaded
+            function ( gltf ) {              
          
-    //             gltf.scene.traverse( child => {
-    //             if ( child.material ) child.material.metalness = 0.1;
-    //                 child.position.set(-0.35,-0.2,-0.011);
-    //                 util.collidableObjects.push(child);
-    //                 domEvent.addEventListener(child,'click', event =>{
-    //                     if (completedTask == 3){
-    //                         questionBlock.style.display = "block";
-    //                         gameBlock.style.display = "none";
+                gltf.scene.traverse( child => {
+                if ( child.material ) child.material.metalness = 0.1;
+                    child.position.set(-0.35,-0.2,-0.011);
+                    util.collidableObjects.push(child);
+                    domEvent.addEventListener(child,'click', event =>{
+                        if (completedTask == 3){
+                            takingTest = true;
+                            document.exitPointerLock();        
+                            questionBlock4.style.display = "block";
+                            gameBlock.style.display = "none";
+                         
                                                         
-    //                     } 
+                        } 
                                     
-    //                 })
-    //             });
-    //             scene.add( gltf.scene );
-    //         });
+                    })
+                });
+                scene.add( gltf.scene );
+            });
 
-    // // Load a glTF resource for question 5
-    // loader.load(
-    //     // resource URL
-    //         modelBaseURL + 'keypad/scene.gltf',
-    //         // called when the resource is loaded
-    //         function ( gltf ) {              
+    // Load a glTF resource for question 5
+    loader.load(
+        // resource URL
+            modelBaseURL + 'keypad/scene.gltf',
+            // called when the resource is loaded
+            function ( gltf ) {              
          
-    //             gltf.scene.traverse( child => {
-    //             if ( child.material ) child.material.metalness = 0.1;
-    //                 child.position.set(-0.0835,-0.155,0.464);
-    //                 util.collidableObjects.push(child);
-    //                 domEvent.addEventListener(child,'click', event =>{
-    //                     if (completedTask == 4){
-    //                         questionBlock.style.display = "block";
-    //                         gameBlock.style.display = "none";
+                gltf.scene.traverse( child => {
+                if ( child.material ) child.material.metalness = 0.1;
+                    child.position.set(-0.0835,-0.155,0.464);
+                    util.collidableObjects.push(child);
+                    domEvent.addEventListener(child,'click', event =>{
+                        if (completedTask == 4){
+                            takingTest = true;
+                            document.exitPointerLock();    
+                            questionBlock5.style.display = "block";
+                            gameBlock.style.display = "none";
                                                         
-    //                     } 
+                        } 
                                     
-    //                 })
-    //             });
-    //             scene.add( gltf.scene );
-    //         });                                      
+                    })
+                });
+                scene.add( gltf.scene );
+            });                                      
 // ----------------------- End Game Control --------------------------------
     {
         //THREE.ImageUtils.crossOrigin = '';
@@ -560,32 +573,130 @@ function main() {
     onWindowResize();
     requestAnimationFrame(render);
 }
-
-function testResults(form) {
+// ------------------------Question 1 testing --------------------------------
+function testResults1(form) {
     try {
         var num1 = 20;
         var num2 = 30;
-        var testCode = document.getElementById("enteredCode").value;
+        var testCode = document.getElementById("enteredCode1").value;
         var value = eval(testCode + "\addNumbers(" + num1 + "," + num2 +");"); 
         var message = "Wrong!"
         if(value == num1 + num2) {
-            message = "You are correct!"
+            message = "You are correct! You found a key!"
+            completedTask = 1;
         }        
-        $("#results").html(message);
+        $("#results1").html(message);
     }
     catch(err) {
-            $("#results").html("Your code threw an exception: " + err);
+            $("#results1").html("Your code threw an exception: " + err);
     }
 }
 
-document.getElementById("submitCode").onclick = testResults;
+// ------------------------Question 2 testing --------------------------------
+function testResults2(form) {
+    try {
+        var testCode = document.getElementById("enteredCode2").value;
+        var findFor = testCode.includes("for");
+        var code = "function test(){" + testCode + "return count;}"
+        var value = eval(code + "test();"); 
+        var message = "Wrong!"
+        if(value == 100 && findFor == true) {
+            message = "You are correct! You found a crowbar"
+            completedTask = 2;
+        }        
+        $("#results2").html(message);
+    }
+    catch(err) {
+            $("#results2").html("Your code threw an exception: " + err);
+    }
+}
+// ------------------------Question 3 testing --------------------------------
+function testResults3(form) {
+    try {
+        var num1 = 20;
+        var num2 = 50;
+        var num3 = 80;
+        var testCode = document.getElementById("enteredCode3").value;
+        var value1 = eval(testCode + "\conditionalIf(" + num1 + ");"); 
+        var value2 = eval(testCode + "\conditionalIf(" + num2 + ");"); 
+        var value3 = eval(testCode + "\conditionalIf(" + num3 + ");"); 
+        var message = "Wrong!"
+        if(value1 == false && value2 == true && value3 == true) {
+            message = "You are correct! You found a piece of paper the states 'Right 10, Left 30, right 18'!"
+            completedTask = 3;
+        }        
+        $("#results3").html(message);
+    }
+    catch(err) {
+            $("#results3").html("Your code threw an exception: " + err);
+    }
+}
+// ------------------------Question 4 testing --------------------------------
+function testResults4(form) {
+    try {
+        var testCode = document.getElementById("enteredCode4").value;
+        var code = "function array(){" + testCode + "return array;}"
+        var value = eval(code + "array()"); 
+        var message = "Wrong!"
+        if(value[0] == 10 && value[1] == 20 && value[2] == 30 && value[3] == 40) {
+            message = "You are correct! You found a post-it note with the numbers 2,0,2,0"
+            completedTask = 4;
+        }        
+        $("#results4").html(message);
+    }
+    catch(err) {
+            $("#results4").html("Your code threw an exception: " + err);
+    }
+}
+// ------------------------Question 5 testing --------------------------------
+function testResults5(form) {
+    try {
+        var num1 = 3;
+        var num2 = 5;
+        var num3 = 7;
+        var testCode = document.getElementById("enteredCode5").value;
+        var count = (testCode.match(/factorial/g) || []).length;
+        var value1 = eval(testCode + "factorial("+ num1 + ");"); 
+        var value2 = eval(testCode + "factorial("+ num2 + ");"); 
+        var value3 = eval(testCode + "factorial("+ num3 + ");"); 
+        var message = "Wrong!"
+        if(value1 = 6 && value2 == 120 && value3 ==5040 && count >= 2) {
+            message = "You are correct!"
+            completedTask = 5;
+        }        
+        $("#results5").html(message);
+    }
+    catch(err) {
+            $("#results5").html("Your code threw an exception: " + err);
+    }
+}
 
-document.getElementById("exitTest").onclick = function() {
+// Exit test
+function exit(){
     takingTest = false; 
-    questionBlock.style.display = "none";
+    questionBlock1.style.display = "none";
+    questionBlock2.style.display = "none";
+    questionBlock3.style.display = "none";
+    questionBlock4.style.display = "none";
+    questionBlock5.style.display = "none";
     gameBlock.style.display = "block";
     element.requestPointerLock();
+}
 
-};
+// test for correct answers
+
+document.getElementById("submitCode1").onclick = testResults1;
+document.getElementById("submitCode2").onclick = testResults2;
+document.getElementById("submitCode3").onclick = testResults3;
+document.getElementById("submitCode4").onclick = testResults4;
+document.getElementById("submitCode5").onclick = testResults5;
+
+document.getElementById("exitTest1").addEventListener("click", event => exit());
+document.getElementById("exitTest2").addEventListener("click", event => exit());
+document.getElementById("exitTest3").addEventListener("click", event => exit());
+document.getElementById("exitTest4").addEventListener("click", event => exit());
+document.getElementById("exitTest5").addEventListener("click", event => exit());
+
+    
 
 main();
