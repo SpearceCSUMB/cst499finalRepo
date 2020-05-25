@@ -293,3 +293,17 @@ nav .current {
     height:     100%; 
 
   }
+  .question-container{
+    background: #000; 
+    display: flex;
+    padding-left: 40%;
+    padding-right: 40%;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    
+  }
+  .buttonCenter{
+    padding-left: 50%;
+    padding-right: 40%;
+  }

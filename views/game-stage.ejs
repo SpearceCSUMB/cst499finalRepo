@@ -2,18 +2,18 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="module" src="js/game.js"></script>
 <!------------------Question 1 Block --------------------------->    
-    <div id = "questionBox1" class="game-stage-container" >
-        <form id = "question1" method = "post" >
+    <div id = "questionBox1" class="question-container" >
+        <form id = "question1" class ="".question" method = "post" >
 
             To move the box, you need to write a function called addNumbers that accepts two parameters and returns their sum.: <br>
-            <textarea id="enteredCode1" name="enteredCode1" rows="15" cols="60">
+            <textarea id="enteredCode1" name="enteredCode1" rows="10" cols="60">
     function addNumbers(a,b) {
         return 0;//Fix this!
     }
             </textarea>
             <br>
-            <button id="submitCode1" type="button" onClick="">Submit</button>
-            <button id = "exitTest1" type = "reset">Exit</button>    
+            <button class = ".buttonCenter" id="submitCode1" type="button" onClick="">Submit</button>
+            <button class = ".buttonCenter" id = "exitTest1" type = "reset">Exit</button>    
         </form>
         <div id="results1">
 
@@ -21,11 +21,11 @@
         
     </div>
 <!------------------Question 2 Block ---------------------------> 
-<div id = "questionBox2" class="game-stage-container" >
+<div id = "questionBox2" class="question-container" >
     <form id = "question2" method = "post" >
 
         Create a 'for' loop that counts a variable 'count' to 100 <br>
-        <textarea id="enteredCode2" name="enteredCode2" rows="15" cols="60">
+        <textarea id="enteredCode2" name="enteredCode2" rows="10" cols="60">
         </textarea>
         <br>
         <button id="submitCode2" type="button" onClick="">Submit</button>
@@ -37,12 +37,12 @@
     
 </div>   
 <!------------------Question 3 Block --------------------------->    
-<div id = "questionBox3" class="game-stage-container" >
+<div id = "questionBox3" class="question-container" >
     <form id = "question2" method = "post" >
 
         Create a conditional if statement that returns true if the value is greater then or equal to
         50, or it returns false : <br>
-        <textarea id="enteredCode3" name="enteredCode3" rows="15" cols="60">
+        <textarea id="enteredCode3" name="enteredCode3" rows="10" cols="60">
 function conditionalIf(value) {
     return 0;//Fix this!
 }
@@ -57,11 +57,11 @@ function conditionalIf(value) {
     
 </div>   
 <!------------------Question 4 Block --------------------------->    
-<div id = "questionBox4" class="game-stage-container" >
+<div id = "questionBox4" class="question-container" >
     <form id = "question4" method = "post" >
 
         Create an Array named 'array' and fill it with the values 10, 20, 30 ,40 in that order: <br>
-        <textarea id="enteredCode4" name="enteredCode4" rows="15" cols="60">
+        <textarea id="enteredCode4" name="enteredCode4" rows="10" cols="60">
         </textarea>
         <br>
         <button id="submitCode4" type="button" onClick="">Submit</button>
@@ -73,11 +73,11 @@ function conditionalIf(value) {
     
 </div>   
 <!------------------Question 5 Block --------------------------->    
-<div id = "questionBox5" class="game-stage-container" >
+<div id = "questionBox5" class="question-container" >
     <form id = "question5" method = "post" >
 
         Create an recursion function that returns the factorial of a given number: <br>
-        <textarea id="enteredCode5" name="enteredCode5" rows="15" cols="60">
+        <textarea id="enteredCode5" name="enteredCode5" rows="10" cols="60">
 function factorial(num) {
     return 0;//Fix this!
 }
@@ -93,7 +93,7 @@ function factorial(num) {
 </div>   
 
 <!------------------   Finished Level --------------------------->
-<div id = "finishedLevel" class="game-stage-container" >
+<div id = "finishedLevel" class="question-container" >
     <form action="/">
         CONGRATULATIONS YOU PASSED LEVEL 1 <br>
         <br>

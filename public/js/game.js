@@ -37,7 +37,7 @@ document.addEventListener('keyup', util.onKeyUp, false);
 //var modelBaseURL = "http://34.106.223.239/gltf/";
 var modelBaseURL = "http://localhost:3000/gltf/";
 // game flow control
-var completedTask = 4;
+var completedTask = 0;
 // Velocity vector for the player
 var playerVelocity = new THREE.Vector3();
 
@@ -593,6 +593,7 @@ function testResults5(form) {
         var value3 = eval(testCode + "factorial("+ num3 + ");"); 
         var message = "Wrong!"
         if(value1 = 6 && value2 == 120 && value3 ==5040 && count >= 2) {
+            completedTask = 0;
             questionBlock1.style.display = "none";
             questionBlock2.style.display = "none";
             questionBlock3.style.display = "none";
