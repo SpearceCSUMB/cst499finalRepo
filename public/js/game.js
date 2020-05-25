@@ -4,6 +4,7 @@ var questionBlock2 = document.getElementById("questionBox2");
 var questionBlock3 = document.getElementById("questionBox3");
 var questionBlock4 = document.getElementById("questionBox4");
 var questionBlock5 = document.getElementById("questionBox5");
+var levelComplete1 = document.getElementById("finishedLevel");
 var gameBlock = document.getElementById("threejs");
 questionBlock1.style.display = "none";
 questionBlock2.style.display = "none";
@@ -35,7 +36,7 @@ document.addEventListener('keyup', util.onKeyUp, false);
 //var modelBaseURL = "http://34.106.223.239/gltf/";
 var modelBaseURL = "http://localhost:3000/gltf/";
 // game flow control
-var completedTask = 0;
+var completedTask = 4;
 // Velocity vector for the player
 var playerVelocity = new THREE.Vector3();
 
@@ -591,8 +592,13 @@ function testResults5(form) {
         var value3 = eval(testCode + "factorial("+ num3 + ");"); 
         var message = "Wrong!"
         if(value1 = 6 && value2 == 120 && value3 ==5040 && count >= 2) {
-            message = "You are correct!"
-            completedTask = 5;
+            questionBlock1.style.display = "none";
+            questionBlock2.style.display = "none";
+            questionBlock3.style.display = "none";
+            questionBlock4.style.display = "none";
+            questionBlock5.style.display = "none";
+            gameBlock.style.display = "none";
+            levelComplete1.style.display = "block";
         }        
         $("#results5").html(message);
     }
@@ -626,7 +632,6 @@ document.getElementById("exitTest2").addEventListener("click", event => exit());
 document.getElementById("exitTest3").addEventListener("click", event => exit());
 document.getElementById("exitTest4").addEventListener("click", event => exit());
 document.getElementById("exitTest5").addEventListener("click", event => exit());
-
-    
+   
 
 main();
