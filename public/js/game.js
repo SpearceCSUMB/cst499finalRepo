@@ -267,7 +267,7 @@ function main() {
      
             gltf.scene.traverse( child => {
             if ( child.material ) child.material.metalness = 0.1;
-                child.position.set(0.37,-0.160,0.04);
+                child.position.set(0.37,-0.162,0.04);
                 util.collidableObjects.push(child);
                 domEvent.addEventListener(child,'click', event =>{
                     if (completedTask == 0){
