@@ -11,6 +11,7 @@ questionBlock2.style.display = "none";
 questionBlock3.style.display = "none";
 questionBlock4.style.display = "none";
 questionBlock5.style.display = "none";
+levelComplete1.style.display = "none";
 gameBlock.style.display = "block";
 // document.getElementById("exitTest").addEventListener("click", event => {
 //     questionBlock.style.display = "none";
