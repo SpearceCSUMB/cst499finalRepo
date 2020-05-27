@@ -529,9 +529,11 @@ function testResults2(form) {
         var findFor = testCode.includes("for");
         var code = "function test(){" + testCode + "return count;}"
         var value = eval(code + "test();"); 
-        var message = "Wrong!"
+        var message = "Though you have turned the key the door remains locked. Maybe if you try jiggling the key a little (and also try writing the ‘for’ loop again) you might be able to get this door unlocked."
         if(value == 100 && findFor == true) {
-            message = "You are correct! You found a crowbar"
+            message = "Correct! You hear the click of the door unlocking and immediately pull the door open. " + 
+            "Lying there on the dirty car seat, among the grit and grime of a very old vehicle, is a shiny new crowbar. " + 
+            "You grab it and prepare yourself to find the next clue."
             completedTask = 2;
         }        
         $("#results2").html(message);

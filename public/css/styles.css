@@ -337,7 +337,6 @@ nav .current {
   }
 
   .container-question-center {
-    /* background-color: green; */
     width: 340;
     text-align: center;
     padding-left: 30px;
@@ -345,12 +344,10 @@ nav .current {
 }
 
   .container-question-right {
-    /* background-color: red; */
     width: 453px;
 }
 
-#enteredCode1 {
-    /* background-color: purple; */
+#enteredCode1, #enteredCode2 {
     display: flex;
     resize: none;
     border-radius: 15px;
@@ -368,12 +365,12 @@ nav .current {
     width: 340px;
 }
 
-#submitCode1 {
+#submitCode1, #submitCode2 {
     margin-top: 211px;
     width: 175px;
 }
 
-#exitTest1 {
+#exitTest1, #exitTest2 {
     width: 175px;
     margin-top: 20px;
 }
@@ -382,7 +379,7 @@ html {
     background-color: #697580;
 }
 
-#results1 {
+#results1, #results2 {
     margin-top: 20px;
 }
 
