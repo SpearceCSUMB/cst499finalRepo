@@ -6,6 +6,7 @@ var questionBlock4 = document.getElementById("questionBox4");
 var questionBlock5 = document.getElementById("questionBox5");
 var levelComplete1 = document.getElementById("finishedLevel");
 var gameBlock = document.getElementById("threejs");
+
 questionBlock1.style.display = "none";
 questionBlock2.style.display = "none";
 questionBlock3.style.display = "none";
@@ -18,8 +19,6 @@ gameBlock.style.display = "block";
 //     gameBlock.style.display = "block";
     
 // });
-
-
 
 import * as THREE from '../build/three.module.js';
 import {GLTFLoader} from '../jsm/loaders/GLTFLoader.js';
@@ -104,7 +103,6 @@ var PLAYERSPEED = 10.0;
 var playerFloor = -0.3;
 var clock;
 var controls;
-
 
 clock = new THREE.Clock();
 
@@ -259,7 +257,7 @@ function main() {
     scene.add( ambient );
             
     // ------------------------Game Control --------------------------------
-        // Puzzle objects
+    // Puzzle objects
     // Load a glTF resource for question 1
     loader.load(
     // resource URL
@@ -512,9 +510,9 @@ function testResults1(form) {
         var num2 = 30;
         var testCode = document.getElementById("enteredCode1").value;
         var value = eval(testCode + "\addNumbers(" + num1 + "," + num2 +");"); 
-        var message = "Wrong!"
+        var message = "Sorry, you reach into the box and even though you dig around as much as you can with your hand you cannot find the item inside. Please try again."
         if(value == num1 + num2) {
-            message = "You are correct! You found a key!"
+            message = "Correct! You’re now holding a key in your hand. Now what could this key belong to? Start searching for the object that this key belongs to."
             completedTask = 1;
         }        
         $("#results1").html(message);

@@ -5,19 +5,14 @@ import {FirstPersonControls} from '../jsm/controls/FirstPersonControls.js';
 import {PointerLockControls} from '../jsm/controls/PointerLockControls.js';
 import {FlyControls} from '../jsm/controls/FlyControls.js';
 
-
 export var moveForward = false;
 export var moveBackward = false;
 export var moveLeft = false;
 export var moveRight = false;
 export var collidableObjects = [];
 
-
-
-
 export function loadgltfModel(modelURL,scene,posX,posY,posZ) {
     var loader = new GLTFLoader();
-      
 
     loader.load(
         // resource URL
@@ -30,15 +25,13 @@ export function loadgltfModel(modelURL,scene,posX,posY,posZ) {
                 if ( child.material ) child.material.metalness = 0.1;
                 child.position.set(posX,posY,posZ);
                 collidableObjects.push(child);
-                
-                
             } );
             scene.add( gltf.scene );
             }
     );
 }
 
-    // A key has been pressed
+// A key has been pressed
 export function onKeyDown(event) {
 
     // if(detectPlayerCollision() == false) {
@@ -68,7 +61,6 @@ export function onKeyDown(event) {
 
     }
 }
-
 
 // A key has been released
 export function onKeyUp(event) {

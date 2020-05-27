@@ -1,27 +1,34 @@
 <%- include('partials/header') %>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="module" src="js/game.js"></script>
-<!------------------Question 1 Block --------------------------->    
-    <div id = "questionBox1" class="question-container" >
-        <form id = "question1" class ="".question" method = "post" >
 
-            <p>You peer into the box and find that it holds the first object that you will need to escape the room. 
-                To remove that object from the box you’ll need to write a function called ‘addNumbers’ that accepts 
-                two parameters and returns their sum.</p>
-            <textarea id="enteredCode1" name="enteredCode1" rows="10" cols="60">
-    function addNumbers(a, b) {
-        return 0; //Fix this!
-    }
-            </textarea>
-            <br>
-            <button class = ".buttonCenter" id="submitCode1" type="button" onClick="">Submit</button>
-            <button class = ".buttonCenter" id = "exitTest1" type = "reset">Exit</button>    
+<!------------------Question 1 Block --------------------------->
+<div class="questionWrapper">
+    <div id="questionBox1" class="question-container" >
+        <form id="question1" class="question" method = "post" >
+            <div class="container-question-left">
+                <h3 class="object-action-title">Object Action</h3>
+                <p>You peer into the cardboard box and find that it holds the first object that you will need to escape the room.
+                    <br><br>To remove the object from the box you’ll need to write a function called ‘addNumbers’ that accepts 
+                    two parameters and returns their sum.</p>
+            </div>
+            <div class="container-question-center">
+                <button class="btn btn-primary" id="submitCode1" type="button" onClick="">Submit your code</button><br>
+                <button class="btn btn-primary" id="exitTest1" type="reset">Return to the room</button>
+            </div>
+            <div class="container-question-right">
+                <textarea class="enterCode" id="enteredCode1" name="enteredCode1" rows="10" cols="60">
+function addNumbers(a, b) {
+    return 0; //Fix this!
+}
+                </textarea>
+            </div>
         </form>
         <div id="results1">
 
-        </div>
-        
+        </div> 
     </div>
+</div>    
 <!------------------Question 2 Block ---------------------------> 
 <div id = "questionBox2" class="question-container" >
     <form id = "question2" method = "post" >
@@ -103,13 +110,11 @@ function factorial(num) {
         <button type="submit" >Main Menu</button>
         </form>
     
-    
 </div>  
 
 <!------------------    Start game   --------------------------->    
     
     <div id = "threejs" class="game-stage-container">
-        
         
         <canvas id="c" width="800" height="400"></canvas>
         
