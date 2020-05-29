@@ -397,3 +397,8 @@ html {
     font-family: 'Barlow Condensed', sans-serif;
     font-size: 36px;
 }
+
+.lang-logo {
+    padding-top: 125px;
+    animation: page_text_slide_up 0.4s ease-in;
+}
