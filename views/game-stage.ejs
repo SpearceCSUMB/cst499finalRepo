@@ -9,7 +9,7 @@
             <div class="container-question-left">
                 <h3 class="object-action-title">Object Action</h3>
                 <p>You peer into the cardboard box and find that it holds the first object that you will need to escape the room.
-                    <br><br>To remove the object from the box you’ll need to write a function called ‘addNumbers’ that accepts 
+                    <br><br>To remove the object from the box you’ll need to write a function called <span class="blueText">addNumbers</span> that accepts 
                     two parameters and returns their sum.</p>
             </div>
             <div class="container-question-center">
@@ -20,8 +20,7 @@
                 <textarea class="enterCode" id="enteredCode1" name="enteredCode1" rows="10" cols="60">
 function addNumbers(a, b) {
     return 0; //Fix this!
-}
-                </textarea>
+}</textarea>
             </div>
         </form>
         <div id="results1"></div> 
@@ -34,9 +33,9 @@ function addNumbers(a, b) {
         <form id="question2" class="question" method = "post" >
             <div class="container-question-left">
                 <h3 class="object-action-title">Object Action</h3>
-                <p>The key slides effortlessly into the door lock of the vehicle. You hold your breath, turn the key and ...
-                    <br><br>To unlock the door and find the next clue you will need to write a for loop that 
-                    iterates the variable ‘count’ from 1 to 100.</p>
+                <p>The key slides effortlessly into the door lock of the vehicle. This look likes it is going to work. You hold your breath, turn the key and ...
+                    <br><br>To unlock the door and find the next clue you will need to escape the room, you need to write a <span class="blueText">for loop</span> that 
+                    iterates the variable ‘count’ from <span class="blueText">1</span> to <span class="blueText">100</span>.</p>
             </div>
             <div class="container-question-center">
                 <button class="btn btn-primary" id="submitCode2" type="button" onClick="">Submit your code</button><br>
@@ -51,74 +50,92 @@ function addNumbers(a, b) {
 </div>
 
 <!------------------Question 3 Block --------------------------->    
-<div id = "questionBox3" class="question-container" >
-    <form id = "question2" method = "post" >
-
-        Create a conditional if statement that returns true if the value is greater then or equal to
-        50, or it returns false : <br>
-        <textarea id="enteredCode3" name="enteredCode3" rows="10" cols="60">
-function conditionalIf(value) {
-    return 0;//Fix this!
-}
-        </textarea>
-        <br>
-        <button id="submitCode3" type="button" onClick="">Submit</button>
-        <button id = "exitTest3" type = "reset">Exit</button>    
-    </form>
-    <div id="results3">
-
+<div class="questionWrapper">
+    <div id="questionBox3" class="question-container" >
+        <form id="question3" class="question" method = "post" >
+            <div class="container-question-left">
+                <h3 class="object-action-title">Object Action</h3>
+                <p>You place the end of the crowbar in the gap between the lid and the crate. As you start applying 
+                    pressure to the crowbar you see the number 50 stenciled on the surface of the crowbar. Finally 
+                    you feel the lid start to give.<br><br>To keep adding pressure to the crowbar and removing the lid from 
+                    the crate you will need to create a <span class="blueText">conditional if statement</span> that returns 
+                    <span class="blueText">true</span> if the value is greater than or equal to <span class="blueText">50</span>, 
+                    if not the statement will return <span class="blueText">false</span> and you will not be able to remove the lid 
+                    from the crate.</p>
+            </div>
+            <div class="container-question-center">
+                <button class="btn btn-primary" id="submitCode3" type="button" onClick="">Submit your code</button><br>
+                <button class="btn btn-primary" id="exitTest3" type="reset">Return to the room</button>
+            </div>
+            <div class="container-question-right">
+                <textarea class="enterCode" id="enteredCode3" name="enteredCode3" rows="10" cols="60"></textarea>
+            </div>
+        </form>
+        <div id="results3"></div> 
     </div>
-    
-</div>   
+</div>
+
 <!------------------Question 4 Block --------------------------->    
-<div id = "questionBox4" class="question-container" >
-    <form id = "question4" method = "post" >
-
-        Create an Array named 'array' and fill it with the values 10, 20, 30 ,40 in that order: <br>
-        <textarea id="enteredCode4" name="enteredCode4" rows="10" cols="60">
-        </textarea>
-        <br>
-        <button id="submitCode4" type="button" onClick="">Submit</button>
-        <button id = "exitTest4" type = "reset">Exit</button>    
-    </form>
-    <div id="results4">
-
+<div class="questionWrapper">
+    <div id="questionBox4" class="question-container" >
+        <form id="question4" class="question" method = "post" >
+            <div class="container-question-left">
+                <h3 class="object-action-title">Object Action</h3>
+                <p>You pull the piece of metal from your pocket and kneel down in front of the safe. Punching the number 
+                    combination from the piece of metal, you hold your breath, hoping that this is going to work. You hit 
+                    the ‘Enter’ button and …<br><br>To open the safe create an array named <span class="blueText">array</span> 
+                    and fill it with the values <span class="blueText">6</span>, <span class="blueText">13</span>, <span class="blueText">20</span>, 
+                    <span class="blueText">20</span> in that order.</p>
+            </div>
+            <div class="container-question-center">
+                <button class="btn btn-primary" id="submitCode4" type="button" onClick="">Submit your code</button><br>
+                <button class="btn btn-primary" id="exitTest4" type="reset">Return to the room</button>
+            </div>
+            <div class="container-question-right">
+                <textarea class="enterCode" id="enteredCode4" name="enteredCode4" rows="10" cols="60"></textarea>
+            </div>
+        </form>
+        <div id="results4"></div> 
     </div>
-    
-</div>   
-<!------------------Question 5 Block --------------------------->    
-<div id = "questionBox5" class="question-container" >
-    <form id = "question5" method = "post" >
+</div>
 
-        Create an recursion function that returns the factorial of a given number: <br>
-        <textarea id="enteredCode5" name="enteredCode5" rows="10" cols="60">
+<!------------------Question 5 Block --------------------------->    
+<div class="questionWrapper">
+    <div id="questionBox5" class="question-container" >
+        <form id="question5" class="question" method = "post" >
+            <div class="container-question-left">
+                <h3 class="object-action-title">Object Action</h3>
+                <p>This just might be the way out! The numbers 3, 5, and 7 seem to be a short number sequence for the 
+                    keypad but who knows, maybe they will unlock the door. You carefully input the numbers and hit enter …
+                    <br><br>To see if you can escape the room, create a recursion function that returns the factorial of a 
+                    given number.</p>
+            </div>
+            <div class="container-question-center">
+                <button class="btn btn-primary" id="submitCode5" type="button" onClick="">Submit your code</button><br>
+                <button class="btn btn-primary" id="exitTest5" type="reset">Return to the room</button>
+            </div>
+            <div class="container-question-right">
+                <textarea class="enterCode" id="enteredCode5" name="enteredCode5" rows="10" cols="60">
 function factorial(num) {
     return 0;//Fix this!
-}
-        </textarea>
-        <br>
-        <button id="submitCode5" type="button" onClick="">Submit</button>
-        <button id = "exitTest5" type = "reset">Exit</button>    
-    </form>
-    <div id="results5">
-
+}</textarea>
+            </div>
+        </form>
+        <div id="results5"></div> 
     </div>
-    
-</div>   
+</div>
 
 <!------------------   Finished Level --------------------------->
 <div id = "finishedLevel" class="question-container" >
+    <img src="/img/exit-image.png" alt="Exit from game"><br>
     <form action="/">
-        CONGRATULATIONS YOU PASSED LEVEL 1 <br>
-        <br>
-        
-        <button type="submit" >Main Menu</button>
-        </form>
-    
+        <p>… the doors slide open and you quickly step through the doorway before the doors change their mind.</p>
+        <p class="congrat-text">CONGRATULATIONS YOU PASSED LEVEL 1<br></p> 
+        <button class="btn btn-primary" type="submit">Return to home page</button>
+    </form>
 </div>  
 
 <!------------------    Start game   --------------------------->    
-    
     <div id = "threejs" class="game-stage-container">
         
         <canvas id="c" width="800" height="400"></canvas>

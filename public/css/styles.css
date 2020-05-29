@@ -347,7 +347,7 @@ nav .current {
     width: 453px;
 }
 
-#enteredCode1, #enteredCode2 {
+#enteredCode1, #enteredCode2, #enteredCode3, #enteredCode4, #enteredCode5 {
     display: flex;
     resize: none;
     border-radius: 15px;
@@ -365,12 +365,12 @@ nav .current {
     width: 340px;
 }
 
-#submitCode1, #submitCode2 {
+#submitCode1, #submitCode2, #submitCode3, #submitCode4, #submitCode5 {
     margin-top: 211px;
     width: 175px;
 }
 
-#exitTest1, #exitTest2 {
+#exitTest1, #exitTest2, #exitTest3, #exitTest4, #exitTest5 {
     width: 175px;
     margin-top: 20px;
 }
@@ -379,11 +379,21 @@ html {
     background-color: #697580;
 }
 
-#results1, #results2 {
+#results1, #results2, #results3, #results4, #results5 {
     margin-top: 20px;
 }
 
 .object-action-title {
     font-family: 'Barlow Condensed', sans-serif;
     color: #23a6d5;
+}
+
+.blueText {
+    color: #23a6d5;
+    font-weight: 400;
+}
+
+.congrat-text {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 36px;
 }

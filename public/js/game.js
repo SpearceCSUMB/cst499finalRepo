@@ -36,7 +36,7 @@ document.addEventListener('keyup', util.onKeyUp, false);
 //var modelBaseURL = "http://34.106.223.239/gltf/";
 var modelBaseURL = "http://localhost:3000/gltf/";
 // game flow control
-var completedTask = 0;
+var completedTask = 3;
 // Velocity vector for the player
 var playerVelocity = new THREE.Vector3();
 
@@ -552,9 +552,9 @@ function testResults3(form) {
         var value1 = eval(testCode + "\conditionalIf(" + num1 + ");"); 
         var value2 = eval(testCode + "\conditionalIf(" + num2 + ");"); 
         var value3 = eval(testCode + "\conditionalIf(" + num3 + ");"); 
-        var message = "Wrong!"
+        var message = "Come on, put a little more effort into it!!! The lid is just not budging at all for you. Let’s try that conditional ‘if statement’ again. Maybe you just need one more crack at it.!"
         if(value1 == false && value2 == true && value3 == true) {
-            message = "You are correct! You found a piece of paper the states 'Right 10, Left 30, right 18'!"
+            message = "Crack! The lid pops off the crate and falls to the floor. You quickly look inside and all you see is lying on the bottom of the crate is a circular piece of metal slightly bigger than a silver dollar. You pick it up and inscribed on one side are the numbers 06 13 20 20. You shove the piece of metal into your pocket and proceed to find what exactly these numbers might refer to."
             completedTask = 3;
         }        
         $("#results3").html(message);
@@ -569,9 +569,9 @@ function testResults4(form) {
         var testCode = document.getElementById("enteredCode4").value;
         var code = "function array(){" + testCode + "return array;}"
         var value = eval(code + "array()"); 
-        var message = "Wrong!"
-        if(value[0] == 10 && value[1] == 20 && value[2] == 30 && value[3] == 40) {
-            message = "You are correct! You found a post-it note with the numbers 2,0,2,0"
+        var message = "… the safe emits out a high pitched squeal and you know that the safe door is not opening up any time soon. Time to try that array one more time."
+        if(value[0] == 6 && value[1] == 13 && value[2] == 20 && value[3] == 20) {
+            message = "… the safe beeps twice in succession and the door to the safe is now unlocked. You open the door and attached to the inside of the door is a lone yellow post-it note. Removing the post-it you see written on it three numbers … 3, 5, and 7. What could these numbers belong to?"
             completedTask = 4;
         }        
         $("#results4").html(message);
@@ -591,7 +591,7 @@ function testResults5(form) {
         var value1 = eval(testCode + "factorial("+ num1 + ");"); 
         var value2 = eval(testCode + "factorial("+ num2 + ");"); 
         var value3 = eval(testCode + "factorial("+ num3 + ");"); 
-        var message = "Wrong!"
+        var message = "… nothing happens. The doors remained locked and you begin to think that maybe this wouldn’t be too bad of a place to spend the rest of your days living. Quickly, you come to your senses and realize that ‘recursion escape’ is your only way out. You try again!"
         if(value1 = 6 && value2 == 120 && value3 ==5040 && count >= 2) {
             completedTask = 0;
             questionBlock1.style.display = "none";
