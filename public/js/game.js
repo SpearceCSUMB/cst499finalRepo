@@ -36,7 +36,7 @@ document.addEventListener('keyup', util.onKeyUp, false);
 //var modelBaseURL = "http://34.106.223.239/gltf/";
 var modelBaseURL = "http://localhost:3000/gltf/";
 // game flow control
-var completedTask = 3;
+var completedTask = 0;
 // Velocity vector for the player
 var playerVelocity = new THREE.Vector3();
 
