@@ -10,8 +10,12 @@ app.get("/", function(req, res){
     res.render("index.ejs");
  });
  
+ app.get("/about", function(req, res) {
+  res.render("about.ejs");
+});
+
  app.get("/game-stage", function(req, res) {
-   res.render("game-stage.ejs")
+   res.render("game-stage.ejs");
  });
 
 // // server listening
