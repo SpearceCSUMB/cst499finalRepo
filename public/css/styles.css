@@ -132,6 +132,102 @@ nav .current {
     animation: page_text_slide_up 0.4s ease-in;
 }
 
+/* === ABOUT US ELEMENTS === */
+
+.bio-header-block {
+    width: 100%;
+    height: 425vh;
+    justify-content: space-evenly;
+    color: #fff;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400%, 400%;
+    animation: change 10s ease-in-out infinite;
+}
+
+.bio-title-container {
+    text-align: center;
+    justify-content: center;
+}
+
+.bio-title {
+    font-family: 'Bitter', serif;
+    font-size: 42px;
+    padding-top: 5%;
+    padding-bottom: 10%;
+    animation: title_slide_up 0.4s ease-in;
+}
+
+.bio-title-sub {
+    font-family: 'Bitter', serif;
+    font-size: 24px;
+    margin-top: -14px;
+    animation: title_slide_up 0.4s ease-in;
+}
+
+.bio-text {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    color: #fff;
+    padding-top: 30px;
+    padding-left: 18px;
+    padding-right: 10px;
+    line-height: 1.8;
+    animation: page_text_slide_up 0.4s ease-in;
+}
+
+.bio-img-container {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px 400px 200px 400px;
+}
+
+.bio-img-container-site {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px 200px 0px 200px;
+}
+
+img.rounded-corners {
+    animation: page_text_slide_up 0.4s ease-in;
+    border-radius: 30px;
+    border: 2px solid#000;
+}
+
+.site-description-container {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    color: #fff;
+    padding-left: 500px;
+    padding-right: 500px;
+    line-height: 1.8;
+    animation: page_text_slide_up 0.4s ease-in;
+}
+
+.button {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); 
+    animation: change 10s ease-in-out infinite;
+    color: black; 
+    border: 2px solid #008CBA;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    
+  }
+  
+  .button:hover {
+    background-color: #008CBA;
+    color: white;
+  }
+
+/* === END OF ABOUT US ELEMENTS === */
+
 .main-block {
     background-color: green;
 }

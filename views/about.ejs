@@ -1,24 +1,95 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Recursion Escape - Northwestern Technology</title>
-        <link rel="stylesheet" type="text/css" href="css/styles.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
-              integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
-              crossorigin="anonymous">
-    </head>
+<%- include('partials/header') %>
+
 <body>
-    <div class="header-block">
-        <div class="header-container">
-            <div class="header-container-left">
-                <div class="team-name-static">Northwestern Technology</div>
-            </div>
-            <div class="header-container-right">
-                <nav>
-                    
-                    <a class="current" href="/">Home</a>
-                    <a class="current" href="/about.ejs">About Us</a>
-                 </nav>
-            </div>
+    <div class="bio-header-block">
+        <div class="bio-title-container">
+            <div class="bio-title">About The Team</div><br>
+            <div class="bio-title-sub">Kevin Bentley</div>
+        </div>
+        <div class="bio-img-container">
+            <img src="/img/KevinBentley.png" alt="Kevin Bentley Photo" alt="Image" height="300" width="220"
+                class="wdn-stretch rounded-corners">
+            <p class="bio-text">
+                I started my academic career enrolling in college back in 1994,
+                but work got in the way, and it was a good six more years before
+                I took any classes. I've been steadily making progress, but until
+                I found the California State at Monterey Bay Computer Science Degree
+                Completion program I wasn't sure if I would ever graduate. <br><br>
+
+                I have been working in information technology and software development
+                since I was 16 years old. I was lucky in that I had an interest and aptitude
+                for it at a time where very few people had Computer Science degrees
+                compared to the demand. I never had any difficulty finding work, and
+                I feel very lucky to have had some great jobs.
+            </p>
+        </div>
+        <div class="bio-title-container">
+            <div class="bio-title-sub">Craig Calvert</div>
+        </div>
+        <div class="bio-img-container">
+            <p class="bio-text">
+                Throughout my career, I have always been involved, in one aspect or another,
+                with the technology side of a business. It was also one of the things I enjoyed
+                the most about my work over the years. A couple of years ago I decided it was
+                time for me to focus my career more on the technology fields. So I started
+                attending computer science classes at Sierra College. I was hooked on computer
+                programming as soon as I started my first Java class. From there that eventually
+                led me into enrolling at California State University, Monterey Bay (CSUMB). <br><br>
+
+                Upon the completion of my degree at CSUMB, I'm looking forward to taking the
+                skills I have acquired during the program and applying them toward a job in
+                the computer development field.
+            </p>
+            <img src="/img/CraigCalvert.jpg" alt="Craig Calvert Photo" class="wdn-stretch rounded-corners">
+        </div>
+        <div class="bio-title-container">
+            <div class="bio-title-sub">Samuel Pearce</div>
+        </div>
+        <div class="bio-img-container">
+            <img src="/img/SamuelPearce.jpg" alt="Samuel Pearce Photo" alt="Image" height="300" width="200"
+                class="wdn-stretch rounded-corners">
+            <p class="bio-text">
+                My name is Samuel Pearce, and I am currently finishing up my final classes for my Bachelors
+                of Science degree in Computer Science from California State University, Monterey Bay.
+                I will start my career with my dream job in 2020 when I graduate. My career goal is to get
+                hired by the state of California and work in their IT department. Ultimately, I would prefer
+                to get hired by the department of corrections and follow in similar footsteps as my grandfather.
+            </p>
+        </div>
+        <div class="bio-title-container">
+            <div class="bio-title-sub">Brian Sheridan</div>
+        </div>
+        <div class="bio-img-container">
+            <p class="bio-text">
+                I grew up in Tucson, Arizona, and at the age of 19 decided to join the United States Navy.
+                I spent 6 years working on radar and weapon systems until my separation from the military.
+                In 2008, I went to work for Siemens Industry. Over the next 8 years I worked on the installation
+                of complex controls systems to include design, point to point checkout, graphical user interfaces,
+                programming to a sequence of operation, integration to various third party vendors, and
+                automation networks. In 2018, I started a program at California State University of Monterey Bay
+                to achieve a bachelor's degree in Computer Science.
+            </p>
+            <img src="/img/BrianSheridan.jpg" alt="Brian Sheridan Photo" alt="Image" height="300" width="220"
+                class="wdn-stretch rounded-corners">
+        </div>
+        <div class="bio-title-container">
+            <div class="bio-title">Other Projects By Our Team</div><br>
+            <div class="bio-title-sub">Advanced Aviation Trader</div>
+        </div>
+        <div class="bio-img-container-site">
+            <img src="/img/AATHome.PNG" alt="Advanced Aviation Trader Home Page" class="wdn-stretch rounded-corners">
+        </div>
+        <div class="site-description-container">
+            <p class="bio-text">
+                The Advanced Aviation Trade site is based around selling airplanes in the United States. The project 
+                consists of an aircraft page that displays the different types of airplanes available to purchase, 
+                a shopping cart page to list what the user has inquired about purchasing, and the ability to delete 
+                items from the shopping cart and checkout. There is an administrator section where they are able to 
+                update available items, remove items that have been purchased, and view reports. <br><br>
+                If you would like to check out the live site, please click the button below. <br>
+
+                <button class="button" onclick="location.href='https://finalproject-19.herokuapp.com/'">Advanced Aviation Trader</button>
+            </p>
+        </div>
     </div>
+    <%- include('partials/footer') %>
