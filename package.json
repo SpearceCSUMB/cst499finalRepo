@@ -22,7 +22,7 @@
     "express": "^4.17.1",
     "mysql": "^2.18.1",
     "request": "^2.88.2",
-    "three": "^0.116.1"
+    "three": "^0.137.0"
   },
   "devDependencies": {}
 }
